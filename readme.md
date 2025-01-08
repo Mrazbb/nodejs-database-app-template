@@ -52,7 +52,7 @@ cd nodejs-database-app-template
 npm update --save
 npm install
 cp sample.main.env main.env
-cp sample.altergen.json altergen.json
+cp app/sample.altergen.json app/altergen.json
 ```
 
 ### Edit main.env and ./app/altergen.json files with your database credentials
