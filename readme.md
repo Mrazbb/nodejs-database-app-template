@@ -39,12 +39,6 @@ Links:
 
 
 
-
-
-
-
-
-
 ## Installation
 ```bash
 git clone git@github.com:Mrazbb/nodejs-database-app-template.git
@@ -61,6 +55,19 @@ cp app/sample.altergen.json app/altergen.json
 
 ```bash
 npm run generate:config
+```
+
+### Generate altergen
+
+```bash
+npm run generate:altergen
+```
+File was generated in folder app/sql/ (alter.sql) with all information to create database, schemas, views, functions, triggers, and also basic data for initial setup.
+
+### Migrate alter script to database
+
+```bash
+npm run migrate:altergen
 ```
 
 ### Dcoker compose local
