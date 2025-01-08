@@ -1,0 +1,187 @@
+<ui-component name="box" path="common.form" config="if:~PATH~;icon:ti ti-copy;autofocus:true;reload:?/reload;scrollbar:1;submit:?/submit;width:800" class="hidden" plugin="~PATH~">
+
+	<div class="padding bg-smoke npb">
+		<div class="padding">
+			<div class="m">
+
+				<!-- Row 1: Title & Tagline -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.title">@(Title)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.tagline">@(Tagline)</ui-component>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.genreids" config="multiple:true;dirsource:DEF.genres;dirvalue:id;dirkey:name;">@(Genres)</ui-component>
+					</div>
+
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.production_company_ids" config="multiple:true;dirsource:DEF.production_companies;dirvalue:id;dirkey:name;">@(Production companies)</ui-component>
+					</div>
+
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.production_country_ids" config="multiple:true;dirsource:DEF.production_countries;dirvalue:id;dirkey:name;">@(Production countries)</ui-component>
+					</div>
+
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.spoken_language_ids" config="multiple:true;dirsource:DEF.spoken_languages;dirvalue:id;dirkey:name;">@(Spoken languages)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 2: Adult & Poster Path -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.adult" config="type:checkbox">@(Adult)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.poster_path">@(Poster Path)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 3: Overview (multiline in full width) -->
+				<div class="row">
+					<div class="col-md-12 m">
+						<ui-component name="input" path="?.overview" config="type:multiline">@(Overview)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 4: Release Date & Original Language -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.release_date" config="type:date">@(Release Date)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.original_language">@(Original Language)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 5: Original Title & IMDB ID -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.original_title">@(Original Title)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.imdb_id">@(IMDB ID)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 6: Popularity & Budget -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.popularity" config="type:number">@(Popularity)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.budget" config="type:number">@(Budget)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 7: Homepage & Collection ID -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.homepage" config="type:url">@(Homepage)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 8: Revenue & Runtime -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.revenue" config="type:number">@(Revenue)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.runtime" config="type:number">@(Runtime)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 9: Status & Video -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.status">@(Status)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.video" config="type:checkbox">@(Video)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 10: Vote Average & Vote Count -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.vote_average" config="type:number">@(Vote Average)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.vote_count" config="type:number">@(Vote Count)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 11: dtcreated & dtupdated -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.dtcreated" config="type:date">@(Date Created)</ui-component>
+					</div>
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.dtupdated" config="type:date">@(Date Updated)</ui-component>
+					</div>
+				</div>
+
+				<!-- Row 12: dtremoved -->
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.dtremoved" config="type:date">@(Date Removed)</ui-component>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<nav>
+		<ui-component name="validate" path="?">
+			<button name="submit" disabled>
+				<i class="ti ti-check-circle"></i>
+				@(SUBMIT)
+			</button>
+			<button name="cancel">@(Cancel)</button>
+		</ui-component>
+	</nav>
+</ui-component>
+
+<script>
+
+	PLUGIN(function(exports) {
+
+		var meta;
+		
+		exports.reload = function(com) {
+			var model = exports.model;
+			var id = model ? model.id : null;
+			com.reconfigure({ title: id ? '@(Update page)' : '@(Create page)' });
+			
+			model.genres && exports.set('?.genreids', model.genres?.map(item => item.id));
+			model.production_companies && exports.set('?.production_company_ids', model.production_companies?.map(item => item.id));
+			model.production_countries && exports.set('?.production_country_ids', model.production_countries?.map(item => item.id));
+			model.spoken_languages && exports.set('?.spoken_language_ids', model.spoken_languages?.map(item => item.id));
+		};
+
+		exports.watch('?.genreids', function(com, path, value) {
+			console.log('genreids', com, path, value);
+		});
+
+		exports.submit = function(hide) {
+			let model = exports.get();
+			
+			hide && hide();
+			exports.tapi('movies_save ERROR', model, function () {
+				SETTER('notify/success', '@(Saved)');
+				hide && hide();
+				setTimeout(function() {
+					EXEC('pluginmovies/refresh')
+				}, 500);
+
+			});
+		};
+		
+	});
+</script>

@@ -1,0 +1,99 @@
+<style>
+	.CLASS .listing .url { font-size: 10px; padding: 1px 3px; }
+	.CLASS .listing .preview { float: right; font-size: 11px; color: #777; margin-right: 10px; }
+	.CLASS .listing .language { padding: 2px 4px; font-family: Menlo, Consolas, monospace; margin-right: 5px; font-size: 11px; }
+	.CLASS .listing .disabled { color: #999; }
+    .CLASS .listing .grid-item { background: #337ab7; padding: 2px 4px; border-radius: 3px; color: #fff; }
+</style>
+<ui-component name="LAZY directory" config="placeholder:Search..."></ui-component>
+<ui-component name="LAZY datepicker"></ui-component>
+<ui-component name="LAZY icons"></ui-component>
+<div class="virtualwire hidden" data-if="CLASS">
+	<ui-plugin>
+		<div style="display:flex">
+			<ui-bind path="?.checked">
+				<button class="exec" data-exec="?/create"><i class="ti ti-plus-circle"></i>@(Create)</button>
+				<button class="exec" data-exec="?/refresh"><i class="ti ti-refresh"></i>@(Refresh)</button>
+				<button class="exec D" data-exec="?/menu"><i class="ti ti-cog"></i>@(Options)</button>
+			</ui-bind>
+		</div>
+	</ui-plugin>
+</div>
+<ui-plugin class="CLASS">
+	<section data-type="main" class="listing">
+		<ui-component name="datagrid" path="?.items" config="margin:0;parent:auto;noborder:1;button:?/options;click:?/update;checked:?.checked;exec:?/filter;">
+			<script type="text/plain">
+				[
+					{ name: 'id', text: '@(ID)', hide: true},
+					{ name: 'title', text: '@(Title)'},
+					{ name: 'genres', text: '@(Genres)', template: '<div style="display:flex;flex-wrap:wrap;gap:5px">{{foreach m in genres}}  <span class="grid-item">{{ m.name }}</span> {{ end}}</div>' },
+                    { name: 'adult', text: '@(Adult)', template: '{{ adult ? "Yes" : "No" }}', options: [{ name: 'yes', id: true }, { name: 'no', id: false }], type: 'boolean'},
+                    { name: 'budget', text: '@(Budget)', template: '$ {{ budget }}'},
+                    { name: 'revenue', text: '@(Revenue)', template: '$ {{ revenue }}'},
+                    { name: 'runtime', text: '@(Runtime)', template: '{{ runtime }} minutes'},
+                    { name: 'vote_average', text: '@(Vote average)', template: '{{ vote_average }}'},
+                    { name: 'vote_count', text: '@(Vote count)', template: '{{ vote_count }}'},
+                    { name: 'release_date', text: '@(Release date)', template: '{{ release_date | date }}'},
+                    { name: 'status', text: '@(Status)', template: '{{ status }}'},
+                    { name: 'tagline', text: '@(Tagline)'},
+                    { name: 'original_language', text: '@(Original language)', template: '{{ original_language }}'},
+                    { name: 'production_companies', text: '@(Production companies)', template: '{{foreach m in production_companies}}  <span class="grid-item">{{ m.name }}</span> {{ end}}'},
+                    { name: 'production_countries', text: '@(Production countries)', template: '{{foreach m in production_countries}}  <span class="grid-item">{{ m.name }}</span> {{ end}}'},
+                    { name: 'spoken_languages', text: '@(Spoken languages)', template: '{{foreach m in spoken_languages}}  <span class="grid-item">{{ m.name }}</span> {{ end}}'},
+					{ name: 'overview', text: '@(Overview)'},
+					{ name: 'original_title', text: '@(Original title)'},
+                    { name: 'dtcreated', text: 'Created', format: '[ts]', align: 2, alignfilter: 2, alignheader: 2, hide: true},
+                    { name: 'dtupdated', text: 'Updated', format: '[ts]', align: 2, alignfilter: 2, alignheader: 2 },
+                    { name: 'dtremoved', text: 'Removed', format: '[ts]', align: 2, alignfilter: 2, alignheader: 2, hide: true }
+				]
+			</script>
+		</ui-component>
+	</section>
+</ui-plugin>
+
+<ui-component name="importer" path="common.form" config="if:formmovie;url:/~ID~/form.html"></ui-component>
+
+<script>
+
+	PLUGIN(function (exports) {
+
+		// run first time
+		exports.init = function() {
+
+		};
+
+		// refresh website
+		exports.refresh = function (el) {
+			exports.filter();
+		};
+
+		exports.filter = function (type, filter, sort, page) {
+			!filter && (filter = {});
+			
+			filter.page = page || null;
+			filter.sort = sort || null;
+			filter.includeroot = true;
+			filter.fields = ['*'];
+
+			exports.tapi('movies_list ERROR', filter, function (response) {
+				exports.set('items', response);
+			});
+		};
+
+		exports.create = function () {
+			SET('*form', 'formmovie');
+			exports.set('formmovie @reset', {});
+		};
+
+		exports.update = function (el) {
+			var id = ATTRD(el);
+			exports.tapi('movies_read @showloading ERROR', { id: id }, function (response) {
+				SET('formmovie @reset @hideloading', response);
+				SET('*form', 'formmovie');
+			});
+		};
+
+		
+	});
+
+</script>

@@ -1,0 +1,24 @@
+# This file is a template, and might need editing before it works on your project.
+FROM node:21
+
+
+RUN apt update
+RUN apt install -y --no-install-recommends graphicsmagick && rm -rf /var/lib/apt/lists/*
+# RUN apt-get install -y ffmpeg
+
+WORKDIR /opt/app
+
+# ARG NODE_ENV
+# ENV NODE_ENV $NODE_ENV
+
+COPY package.json /opt/app
+RUN npm install
+
+# COPY . /opt/app
+
+EXPOSE 8000
+
+# CMD ["/bin/sh", "-c", "npm start --release 2>&1 | tee -a logs/debug.log"]
+
+
+CMD [ "npm", "start" ]

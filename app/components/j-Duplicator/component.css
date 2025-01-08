@@ -1,0 +1,7 @@
+.ui-lister > .ui-lister-container  {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.05);
+    margin-bottom: 2px;
+    border-radius: 15px;
+    margin: 10px 0px;
+}

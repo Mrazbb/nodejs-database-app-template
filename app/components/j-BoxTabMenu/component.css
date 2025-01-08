@@ -1,0 +1,13 @@
+.ui-boxtabmenu { padding: 0; margin: 0 0 10px; display: block; position: relative; font-size: 12px; list-style-type: none; height: 26px; }
+.boxtabmenu { padding: 0; margin: 0 0 10px; display: block; position: relative; font-size: 12px; list-style-type: none; height: 26px; }
+.ui-boxtabmenu li { float: left; border: 0; margin: 0 1px 0 0; padding: 0; background-color: #F0F0F0; text-align: center; color: gray; cursor: pointer; min-width: 29px; border-radius: var(--radius); }
+.ui-boxtabmenu li:first-child { border-top-left-radius: var(--radius); border-bottom-left-radius: var(--radius); }
+.ui-boxtabmenu li:last-child { border-top-right-radius: var(--radius); border-bottom-right-radius: var(--radius); }
+.ui-boxtabmenu .selected { background-color: var(--color); color: #FFF; }
+.ui-boxtabmenu i { margin-right: 5px; }
+.ui-boxtabmenu.ui-disabled .selected { background-color: #E0E0E0; }
+.ui-boxtabmenu.ui-disabled li { cursor: not-allowed; color: #A0A0A0; }
+.ui-dark .ui-boxtabmenu li { background-color: #303030; color: #A0A0A0; }
+.ui-dark .ui-boxtabmenu .selected { background-color: var(--color); color: #FFF; }
+.ui-dark .ui-boxtabmenu.ui-disabled .selected { background-color: #404040; }
+.ui-dark .ui-boxtabmenu.ui-disabled li { color: #888; }

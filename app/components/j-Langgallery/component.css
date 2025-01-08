@@ -1,0 +1,3 @@
+.ui-langgallery .ui-langgallery-container { width: 200px; height: 200px; flex-basis: 100px; position: relative; margin: 10px;}
+.ui-langgallery .ui-langgallery-container p {font-size: 9px; }
+.ui-langgallery .ui-langgallery-container.selected {background-color: aquamarine; padding: 5px;}

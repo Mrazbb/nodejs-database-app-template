@@ -1,0 +1,30 @@
+{
+  "name": "cms",
+  "description": "Node.js (CMS) Content Management System",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/totaljs/cms"
+  },
+  "dependencies": {
+    "csv-parser": "^3.1.0",
+    "csv-writer": "^1.6.0",
+    "dbms": "^1.0.9",
+    "dotenv": "^16.4.5",
+    "pg": "^8.11.5",
+    "pg-hstore": "^2.3.4",
+    "querybuilderpg": "^1.0.24",
+    "total5": "^0.0.8-2"
+  },
+  "scripts": {
+    "altergen": "cd scripts && ./altergen.sh",
+    "logs": "cd scripts && ./docker_logs.sh",
+    "update-altergen": "cd scripts && ./update_altergen.sh"
+  },
+  "keywords": [
+    "cms"
+  ],
+  "author": "Total.js",
+  "license": "MIT"
+}

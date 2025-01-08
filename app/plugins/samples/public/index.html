@@ -1,0 +1,88 @@
+<style>
+	.CLASS .listing .url { font-size: 10px; padding: 1px 3px; }
+	.CLASS .listing .preview { float: right; font-size: 11px; color: #777; margin-right: 10px; }
+	.CLASS .listing .language { padding: 2px 4px; font-family: Menlo, Consolas, monospace; margin-right: 5px; font-size: 11px; }
+	.CLASS .listing .disabled { color: #999; }
+</style>
+
+<div class="virtualwire hidden" data-if="CLASS">
+	<ui-plugin>
+		<div style="display:flex">
+			<ui-bind path="?.checked">
+				<button class="exec" data-exec="?/create"><i class="ti ti-plus-circle"></i>@(Create)</button>
+				<button class="exec" data-exec="?/refresh"><i class="ti ti-refresh"></i>@(Refresh)</button>
+				<button class="exec D" data-exec="?/menu"><i class="ti ti-cog"></i>@(Options)</button>
+			</ui-bind>
+		</div>
+	</ui-plugin>
+</div>
+
+<ui-plugin class="CLASS">
+	<section data-type="main">
+		<ui-component name="datagrid" path="?.items" config="margin:0;parent:auto;noborder:1;button:?/options;click:?/update;checked:?.checked;exec:?/filter;">
+			<script type="text/plain">
+				[
+					{ name: 'id', text: '@(ID)', hide: true},
+					{ name: 'name', name: '@(Name)', template: '{{ typeicon | raw }} {{name}}'},
+					{ name: 'dtcreated', text: '@(Created)', type: 'date', format: '[ts]', hide: true},
+					{ name: 'dtupdated', text: '@(Updated)', type: 'date', format: '[ts]' },
+					{ name: 'dtremoved', text: '@(Removed)', type: 'date', format: '[ts]', hide: true },
+					{ name: 'createdbyid', text: '@(Created by id)', hide: true },
+					{ name: 'updatedbyid', text: '@(Updated by id)', hide: true },
+					{ name: 'removedbyid', text: '@(Removed by id)', hide: true },
+					{ name: 'createdbyname', text: '@(Created by)', hide: true },
+					{ name: 'updatedbyname', text: '@(Updated by)', hide: true },
+					{ name: 'removedbyname', text: '@(Removed by)', hide: true }
+				]
+			</script>
+		</ui-component>
+	</section>
+</ui-plugin>
+
+<ui-component name="importer" path="common.form" config="if:formsample;url:/~ID~/form.html"></ui-component>
+
+<script>
+
+	PLUGIN(function (exports) {
+
+		// run first time
+		exports.init = function() {
+
+		};
+
+		// refresh website
+		exports.refresh = function (el) {
+			exports.filter();
+		};
+
+		exports.filter = function (type, filter, sort, page) {
+			!filter && (filter = {});
+			
+			filter.page = page || null;
+			filter.sort = sort || null;
+			filter.includeroot = true;
+			filter.fields = ['*'];
+
+			exports.tapi('samples_list ERROR', filter, function (response) {
+				exports.set('items', response);
+			});
+		};
+
+		exports.create = function () {
+			SET('*form', 'formsample');
+			exports.set('formsample @reset', {});
+		};
+
+		exports.update = function (el) {
+			var id = ATTRD(el);
+			console.log('update', id);	
+			exports.tapi('samples_read @showloading ERROR', { id: id }, function (response) {
+				SET('formsample @reset @hideloading', response);
+				SET('*form', 'formsample');
+			});
+		};
+
+		
+	});
+
+</script>

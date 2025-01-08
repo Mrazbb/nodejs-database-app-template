@@ -1,0 +1,51 @@
+<ui-component name="box" path="common.form" config="if:~PATH~;icon:ti ti-copy;autofocus:true;reload:?/reload;scrollbar:1;submit:?/submit;width:800" class="hidden" plugin="~PATH~">
+
+	<div class="padding bg-smoke npb">
+		<div class="padding">
+			<div class="m">
+				<div class="row">
+					<div class="col-md-6 m">
+						<ui-component name="input" path="?.name" >@(Name)</ui-component>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav>
+		<ui-component name="validate" path="?">
+			<button name="submit" disabled><i class="ti ti-check-circle"></i>@(SUBMIT)</button>
+			<button name="cancel">@(Cancel)</button>
+		</ui-component>
+	</nav>
+</ui-component>
+
+<script>
+
+	PLUGIN(function(exports) {
+
+		var meta;
+		
+		exports.reload = function(com) {
+			var model = exports.model;
+			var id = model ? model.id : null;
+			com.reconfigure({ title: id ? '@(Update page)' : '@(Create page)' });
+		};
+
+		exports.submit = function(hide) {
+			let model = exports.get();
+			console.log('get', model);
+
+			hide && hide();
+			exports.tapi('samples_save ERROR', model, function () {
+				SETTER('notify/success', '@(Saved)');
+				hide && hide();
+				setTimeout(function() {
+					EXEC('pluginsamples/refresh')
+				}, 500);
+
+			});
+		};
+		
+	});
+</script>

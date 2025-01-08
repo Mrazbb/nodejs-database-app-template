@@ -1,0 +1,105 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "RUN ALTERGEN",
+      "type": "shell",
+      "command": "cd ./app && npx pg-altergen generate && npx pg-altergen migrate",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ALTERGEN UPDATE",
+      "type": "shell",
+      "command": "./tasks/run_in_cms.sh 'cd /opt/app/ && npm cache clean --force && npm update pg-altergen && npm list pg-altergen'",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Backup Postgres",
+      "type": "shell",
+      "command": "./tasks/backup_postgres.sh",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Restore Postgres",
+      "type": "shell",
+      "command": "./tasks/confirm.sh 'Are you sure you want to restore Postgres?' && if [ $? -eq 0 ]; then ./tasks/restore_postgres.sh; fi",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Docker compose up -d",
+      "type": "shell",
+      "command": "docker_compose_dev_override=$(grep '^docker_compose_dev_override=' .env | cut -d '=' -f2) && echo \"docker_compose_dev_override: $docker_compose_dev_override\" && if [ \"$docker_compose_dev_override\" = \"true\" ]; then echo \"Running in STAGE mode\" && docker compose -f docker-compose.yml -f docker-compose.dev.yml up -d; else echo \"Running in PRODUCTION mode\" && docker compose -f docker-compose.yml up -d; fi",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Docker compose restart",
+      "type": "shell",
+      "command": "docker_compose_dev_override=$(grep '^docker_compose_dev_override=' .env | cut -d '=' -f2) && echo \"docker_compose_dev_override: $docker_compose_dev_override\" && if [ \"$docker_compose_dev_override\" = \"true\" ]; then echo \"Running in STAGE mode\" && docker compose -f docker-compose.yml -f docker-compose.dev.yml restart; else echo \"Running in PRODUCTION mode\" && docker compose restart; fi",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Generate config",
+      "type": "shell",
+      "command": "cd tasks && node generate_config.js && cd .. && sleep 5 && exit",
+      "group": "test",
+      "presentation": {
+        "reveal": "silent",
+        "panel": "new",
+        "close": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen",
+      }
+    },
+    {
+      "label": "Check config",
+      "type": "shell",
+      "command": "cd tasks && node check_config.js && cd .. && if [ $? -ne 0 ]; then exec $SHELL; else sleep 1 && exit; fi",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new",
+        "close": true
+      },
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
+    },
+    {
+      "label": "EXAMPLE WITH CONFIRM",
+      "type": "shell",
+      "command": "./tasks/confirm.sh 'Are you sure you want to publish?' && if [ $? -eq 0 ]; then echo 'Publishing...'; fi",
+      "group": "test",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+  ]
+}

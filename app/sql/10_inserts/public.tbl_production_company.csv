@@ -1,0 +1,822 @@
+id;company_id;name
+1;;Lucasfilm
+2;;Walt Disney Pictures
+3;;Pixar Animation Studios
+4;;Paramount Pictures
+5;;Columbia Pictures
+6;;RKO Radio Pictures
+9;;Gaumont
+11;;WingNut Films
+12;;New Line Cinema
+13;;Universal Studios
+14;;Miramax Films
+23;;Imagine Entertainment
+27;;DreamWorks SKG
+33;;Universal Pictures
+35;;Lions Gate Films
+41;;Orion Pictures
+43;;Fox Searchlight Pictures
+44;;Cruise/Wagner Productions
+56;;Amblin Entertainment
+58;;Sony Pictures Classics
+59;;A Band Apart
+60;;United Artists
+68;;Big Primate Pictures
+69;;MFPV Film
+70;;American Zoetrope
+79;;Village Roadshow Pictures
+80;;The Zanuck Company
+81;;Plan B Entertainment
+84;;Tree Line Films
+85;;Konrad Pictures
+88;;Hawk Films
+97;;Castle Rock Entertainment
+104;;Canal Plus
+126;;Lakeshore Entertainment
+130;;Jerry Bruckheimer Films
+152;;Icon Productions
+158;;Spyglass Entertainment
+163;;Revolution Films
+171;;Malpaso Productions
+174;;Warner Bros. Pictures
+175;;Caravan Pictures
+177;;Columbia TriStar
+181;;Channel Four Films
+183;;Le Studio Canal+
+185;;Pandora Cinema
+191;;Senator Film Produktion
+215;;Double Feature Films
+216;;Jersey Films
+240;;Bazmark Films
+258;;Scott Rudin Productions
+264;;Studio Babelsberg
+284;;DNA Films
+286;;Fantasy Films
+288;;BBC Films
+289;;Ingenious Film Partners
+290;;Ingenious Media
+306;;Twentieth Century Fox Film Corporation
+308;;The Weinstein Company
+326;;Laura Ziskin Productions
+333;;Original Film
+342;;Davis-Films
+347;;Centropolis Entertainment
+358;;Noel Gay Motion Picture Company
+359;;Figment Films
+367;;Kemp Company
+368;;Splendid Pictures
+370;;Melampo Cinematografica
+372;;Groucho II Film Partnership
+373;;Asymmetrical Productions
+385;;Stanley Kubrick Productions
+388;;Horizon Pictures
+396;;SLM Production Group
+419;;Embassy Pictures Corporation
+420;;Marvel Studios
+421;;Amen Ra Films
+429;;DC Comics
+433;;Weed Road Pictures
+435;;Di Bonaventura Pictures
+436;;1492 Pictures
+437;;Heyday films
+441;;Columbia Pictures Corporation
+443;;Big Talk Productions
+444;;Dune Entertainment
+445;;Major Studio Partners
+449;;Virtual Studios
+450;;Anarchos Productions
+455;;Permut Presentations
+462;;Patalex IV Productions Limited
+469;;Hemdale Film Corporation
+491;;Summit Entertainment
+497;;Revolution Studios
+506;;Newmarket Capital Group
+507;;Atlas Entertainment
+508;;Regency Enterprises
+520;;Pacific Data Images (PDI)
+521;;DreamWorks Animation
+536;;The Coppola Company
+552;;Dark Horse Entertainment
+554;;Silver Screen Partners III
+558;;Lisberger/Kushner
+559;;TriStar Pictures
+562;;Appian Way
+574;;Lightstorm Entertainment
+597;;Irish Dreamtime
+598;;Team Todd
+616;;Eskwad
+635;;Les Films Alain Sarde
+636;;Babbo Inc.
+637;;The Picture Factory
+638;;Laurel Group
+656;;Metropolitan Filmexport
+657;;Toho-Towa
+662;;Turman-Foster Company
+675;;Forward Pass
+694;;StudioCanal
+701;;Meespierson Film CV
+711;;Fox 2000 Pictures
+729;;Why Not Productions
+737;;Sidney Kimmel Entertainment
+738;;Myriad Pictures
+762;;Mutual Film Company
+763;;Intermedia Films
+766;;Blue Tulip Productions
+768;;Ghost House Pictures
+780;;Red Wagon Productions
+787;;3 Arts Entertainment
+819;;Mars Films
+827;;VIP 3 Medienfonds
+828;;Ultra Films
+829;;Vertigo Entertainment
+831;;Saturn Films
+838;;Paramount Vantage
+840;;Lawrence Gordon Productions
+856;;Wild Bunch
+862;;The Kennedy/Marshall Company
+893;;Stanley Kramer Productions
+911;;Roadside Attractions
+915;;Hollywood Pictures
+919;;Beacon Communications
+923;;Legendary Pictures
+924;;The Turman-Morrissey Company
+961;;Roger Birnbaum Productions
+1063;;Brightlight Pictures
+1073;;Gordon Company
+1088;;Alcon Entertainment
+1115;;M6 Films
+1157;;Les Cinémas de la Zone
+1205;;Endgame Entertainment
+1224;;Intrepid Pictures
+1246;;River Road Entertainment
+1268;;Focus Films
+1274;;Clinica Estetico
+1280;;Pacific Western
+1302;;Davis Entertainment
+1305;;L.I.F.T. Production
+1382;;PolyGram Filmed Entertainment
+1423;;Escape Artists
+1461;;Pressman-Williams
+1549;;Opera Film Produzione
+1557;;The Mark Gordon Company
+1569;;Yash Raj Films
+1600;;Craven-Maddalena Films
+1632;;Lionsgate
+1634;;Truenorth Productions
+1645;;Scott Free Productions
+1756;;Broadway Video
+1785;;Likely Story
+1811;;FilmColony
+1865;;Zanuck/Brown Productions
+1885;;Silver Pictures
+1926;;Les Films Du Fleuve
+1972;;X-Filme Creative Pool
+2019;;Osiris Films
+2029;;Estudios Picasso
+2061;;Twisted Pictures
+2108;;Battleplan Productions
+2214;;Flower Films
+2233;;Bristol Bay Productions
+2251;;Sony Pictures Animation
+2266;;Bold Films
+2269;;China Film Co-Production Corporation
+2348;;Nickelodeon Movies
+2363;;Cold Spring Pictures
+2377;;Chicago Pacific Entertainment
+2394;;Artina Films
+2395;;HanWay Films
+2481;;Platinum Dunes
+2514;;Alliance Films
+2527;;Marc Platt Productions
+2528;;Top Cow Productions
+2531;;Media Rights Capital
+2537;;Kennedy Miller Productions
+2550;;Teitler Film
+2575;;21 Laps Entertainment
+2596;;Jerry Weintraub Productions
+2608;;Happy Madison Productions
+2648;;Road Rebel
+2691;;Infinitum Nihil
+2721;;Jinks/Cohen Company
+2723;;Lin Pictures
+2735;;Mid Atlantic Films
+2737;;Davis-Panzer Productions
+2767;;Mace Neufeld Productions
+2780;;Cube Vision
+2785;;Warner Bros. Animation
+2798;;Columbia Pictures Film Production Asia
+2877;;Living Films
+2885;;Starz Animation
+2912;;Diamond Films
+2994;;Hollywood Gang Productions
+2995;;Atmosphere Entertainment MM
+3036;;Walt Disney Studios Motion Pictures
+3045;;Sony Pictures Releasing
+3166;;Walt Disney Productions
+3169;;Zide-Perry Productions
+3172;;Blumhouse Productions
+3281;;GK Films
+3287;;Screen Gems
+3299;;ApolloMovie Beteiligungs
+3322;;August Entertainment
+3334;;Adam Fields Productions
+3341;;Fuji Television Network
+3383;;777 Films Corporation
+3384;;Halt Productions
+3407;;Shanghai Film Group
+3527;;Green Hat Films
+3528;;Thunder Road Pictures
+3604;;Grindstone Entertainment Group
+3618;;Film Workshop
+3672;;Gotham Group
+3823;;TF1 Films Production
+3929;;Robert Simonds Productions
+3952;;Hemdale Film
+3965;;Taewon Entertainment
+3982;;Darkwoods Productions
+4000;;Maverick Films
+4022;;Wonderland Sound and Vision
+4171;;Playtone
+4176;;Nord-Ouest Productions
+4267;;Delphi Films
+4286;;Juno Pix
+4357;;The Guber-Peters Company
+4564;;Icon Entertainment International
+4607;;Montecito Picture Company, The
+4615;;Ubisoft
+4700;;Linson Entertainment
+4740;;Gary Sanchez Productions
+4764;;Cinema 84
+4792;;Film Afrika Worldwide
+4904;;Alan Landsburg Productions
+5076;;TMC
+5128;;San Francisco Film
+5165;;BFI
+5218;;Imprint Entertainment
+5219;;Sunswept Entertainment
+5237;;The Saul Zaentz Company
+5257;;Film Department, The
+5263;;Amercent Films
+5264;;American Entertainment Partners L.P.
+5353;;Fastnet Films
+5358;;Canal+
+5374;;Marv Films
+5420;;Color Force
+5438;;Kyoto Animation
+5552;;Media Asia Films
+5561;;Panorama Films
+5585;;Stephen J. Cannell Productions
+5611;;Milk & Honey
+5612;;Brooksfilms
+5698;;Oops Doughnuts Productions
+5752;;Sony Pictures Entertainment
+5755;;Constantin Film Produktion
+5798;;Shaw Brothers
+5802;;Evil Twins
+5870;;Studio Canal
+5888;;Walt Disney
+5996;;BBC
+6092;;Licht/Mueller Film Corporation
+6125;;Walt Disney Animation Studios
+6179;;Thorn EMI Screen Entertainment
+6194;;Warner Bros.
+6246;;Medusa Film
+6277;;Skydance Productions
+6332;;Dune Entertainment III
+6363;;BenderSpink
+6408;;International Traders
+6417;;Film i Väst
+6446;;Total Entertainment
+6452;;Dentsu
+6586;;TPS Star
+6680;;Serendipity Productions
+6687;;Viz Media
+6704;;Illumination Entertainment
+6708;;Cloud Eight Films
+6715;;K5 International
+6734;;Bay Films
+6735;;Participant Media
+6736;;Imagenation Abu Dhabi FZ
+6817;;Zehnte Babelsberg
+6818;;Visiona Romantica
+6831;;Big Indie Pictures
+6877;;Grive Productions
+6896;;EuropaCorp
+7036;;CJ Entertainment
+7076;;Chernin Entertainment
+7154;;One Race Films
+7161;;LivePlanet
+7193;;Company Films
+7217;;See-Saw Films
+7254;;Greek Film Center
+7289;;Weinstein Company, The
+7294;;Reliance Entertainment
+7295;;Relativity Media
+7296;;K/O Paper Products
+7297;;Fairview Entertainment
+7307;;Medienboard Berlin-Brandenburg
+7311;;Kerner Entertainment Company
+7330;;Blind Spot Pictures Oy
+7340;;C-2 Pictures
+7344;;Sayaka Producciones Audiovisuales
+7364;;Heyday Films
+7380;;Initial Entertainment Group (IEG)
+7383;;Kennedy/Marshall Company, The
+7384;;Hypnotic
+7385;;Kalima Productions GmbH & Co. KG
+7392;;Twentieth Century Fox
+7405;;Dimension Films
+7413;;3Foot7
+7431;;Sony Pictures Entertainment (SPE)
+7437;;IM Global
+7460;;Vendome Pictures
+7470;;Esperanto Filmoj
+7490;;TSBD Canada Productions
+7491;;Zohar International
+7493;;FilmNation Entertainment
+7505;;Marvel Entertainment
+7508;;Produzioni Europee Associati (PEA)
+7561;;Nexus Factory
+7571;;LionsGate
+7576;;Eon Productions
+7584;;Screen Australia
+7625;;Automatik Entertainment
+7636;;Nimar Studios
+7680;;Tornasol Films
+7733;;Laurinfilm
+7734;;Subterranean Productions LLC
+7735;;Subterranean Productions UK Ltd.
+7736;;Underworld Produktions GmbH
+7738;;Sketch Films
+7745;;Euro Film Funding
+7965;;The Ladd Company
+7981;;Pathé
+8000;;Broken Road Productions
+8087;;Creative Scotland
+8089;;Animal Logic
+8111;;Apaches Entertainment
+8147;;Entertainment One
+8249;;Beijing Liangzi Group
+8250;;Bona International Film Group
+8252;;Shineshow
+8253;;Skylark Productions
+8286;;Decibel Films
+8403;;Bandito Brothers
+8406;;Big Kid Pictures
+8411;;Metro-Goldwyn-Mayer (MGM)
+8569;;Dayday Films
+8601;;Tim Burton Productions
+8647;;NEW Century
+8714;;Northern Lights Films
+8789;;Fuzzy Door Productions
+8816;;Northern Lights Entertainment
+8835;;Skellington Productions Inc.
+8851;;Shawn Danielle Productions Ltd.
+8870;;CatchPlay
+8896;;Manhattan Pictures International
+8915;;Pandemonium
+9015;;Worldview Entertainment
+9078;;Constantin Film.
+9169;;Hemisphere Media Capital
+9195;;Touchstone Pictures
+9282;;27 Films Production
+9349;;Film4
+9351;;Fade to Black Productions
+9383;;Blue Sky Studios
+9971;;Castafiore Films
+9993;;DC Entertainment
+9995;;Cruel & Unusual Films
+9996;;Syncopy
+10012;;Nadie es Perfecto
+10039;;Anonymous Content
+10104;;New Regency Pictures
+10105;;Apatow Productions
+10138;;Double Nickel Entertainment
+10146;;Focus Features
+10161;;Gilbert Films
+10163;;Working Title Films
+10198;;CoMix Wave Films
+10201;;Interscope Communications
+10210;;Morgan Creek Productions
+10211;;Alfran Productions
+10217;;Walt Disney Feature Animation
+10221;;Walden Media
+10227;;Mandeville Films
+10229;;New Holland Pictures
+10235;;Vision P.D.G.
+10246;;Cross Creek Pictures
+10254;;Millennium Films
+10255;;Voltage Pictures
+10280;;Arc Productions
+10282;;Silver Screen Partners IV
+10289;;DMG Entertainment
+10338;;Perfect World Pictures
+10342;;Studio Ghibli
+10399;;Cinetel Films
+10400;;Eagle Pictures
+10405;;Emmett/Furla Films
+10565;;Good Machine
+10611;;Ciné+
+10715;;Alfred J. Hitchcock Productions
+10717;;Shamley Productions
+10761;;Danjaq
+10807;;Troublemaker Studios
+10880;;Yuma
+10889;;British Film Council
+10893;;Big Screen Productions
+10905;;Farewell Productions
+10908;;Phoenix Film Partners
+10991;;Jon Shestack Productions
+11005;;AR Films
+11006;;Aldamisa Entertainment
+11029;;QED International
+11084;;Parkes/MacDonald Productions
+11092;;Ram Bergman Productions
+11199;;Scope Pictures
+11261;;M6
+11272;;Peregrine
+11305;;Saban Brands
+11308;;Savoy Pictures
+11317;;Phoenix Pictures
+11321;;Imaginary Forces
+11322;;Justin Pictures
+11323;;Linovo Productions GmbH & Co. KG
+11324;;Pacific Title and Art Studio
+11341;;Stage 6 Films
+11345;;Stillking Films
+11346;;Motion Picture THETA Produktionsgesellschaft
+11347;;Ludlum Entertainment
+11348;;Motion Picture BETA Produktionsgesellschaft
+11349;;Bourne Again
+11353;;B.H. Finance C.V.
+11362;;Mark Gordon Productions
+11395;;ImageMovers
+11398;;Selenia Cinematografica
+11413;;China Movie Channel
+11446;;Lereby Productions
+11461;;Bad Robot
+11462;;Alphaville Films
+11473;;A.J.O.Z. Films
+11533;;Valhalla Motion Pictures
+11535;;Jill Jakes Production
+11536;;Badlands Company
+11537;;Laika Entertainment
+11561;;Recorded Picture Company (RPC)
+11565;;The Safran Company
+11581;;Misher Films
+11628;;Tequila Gang
+11667;;Northern Ireland Screen
+11749;;Twentieth Century Fox Animation
+11752;;Number 9 Films
+11801;;Trigger Street Productions
+11843;;Goldcrest Pictures
+11858;;A&E Television Networks
+11931;;Prime Time
+11956;;Apparatus Productions
+12087;;Angry Films
+12180;;Warp Films
+12200;;Province of British Columbia Production Services Tax Credit
+12205;;EDKO Film
+12235;;IFP Westcoast Erste
+12236;;Blinding Edge Pictures
+12292;;Temple Hill Entertainment
+12485;;Overbrook Entertainment
+12516;;Nibariki
+12695;;Sixteen Films
+12943;;APJAC Productions
+13161;;Tea Shop & Film Company
+13184;;Annapurna Pictures
+13241;;Demarest Films
+13769;;Lynda Obst Productions
+13778;;Bluegrass Films
+13786;;Aquarius Films
+13796;;Hong Kong Alpha Motion Pictures Co.
+13923;;Sobini Films
+13969;;Globo Filmes
+14439;;Arad Productions
+14440;;Red Wagon Entertainment
+14446;;Infinite Frameworks Studios
+14604;;Spectrum Films
+14634;;Sailor Bear
+14718;;Radar Pictures
+14723;;Carolco Pictures
+14861;;Before the Door Pictures
+14862;;Washington Square Films
+15113;;Boo Productions
+15115;;Horsefly Productions
+15357;;Prime Focus
+15829;;Pacific Standard
+16061;;Baltimore Spring Creek Productions
+16076;;Newgrange Pictures
+16312;;Crave Films
+16314;;Roth Films
+16615;;Point Grey Pictures
+16791;;Newman/Tooley Films
+17032;;Barry Mendel Productions
+17209;;Vice Films
+17393;;Good Universe
+17449;;Grosvenor Park Productions
+17546;;Illusion Film & Television
+17653;;22h22
+17929;;Vincent Newman Entertainment
+18065;;20th Century Fox Russia
+18209;;Alpha Core
+18230;;Filmgate Films
+18359;;Ringling College of Art and Design
+18617;;Energy Entertainment
+18626;;Kinology
+18713;;Prana Studios
+18880;;Showtime Networks
+18990;;Radiant Productions
+19037;;Umedia
+19097;;Junction Entertainment
+19108;;Latina Pictures
+19116;;IMF Internationale Medien und Film GmbH & Co. 3. Produktions KG
+19222;;Optimum Productions
+19231;;Patalex III Productions Limited
+19233;;120 Films
+19246;;Faliro House Productions
+19477;;Dune Films
+19481;;Babelsberg Film
+19551;;Marvel Enterprises
+19643;;Sommers Company, The
+19648;;Radical Studios
+19747;;Brandywine Productions
+19750;;Disney Double Dare You (DDY)
+19751;;Indochina Productions
+19857;;Sean Daniel Company
+19927;;Government of Malta
+19936;;Second Mate Productions
+19961;;Start Motion Pictures
+20004;;Zanuck Company, The
+20064;;NEW
+20192;;Nippon Television Network (NTV)
+20242;;Imhotep Productions
+20289;;Asia Union Film & Entertainment Ltd.
+20290;;United China Vision
+20291;;Zoom Hunt International Productions Company Ltd.
+20448;;U-Drive Productions
+20478;;Moving Picture Company (MPC)
+20555;;Taurus Film
+20580;;Amazon Studios
+20634;;Bedford Falls Company, The
+20656;;Babieka
+20664;;Anton Capital Entertainment (ACE)
+21409;;MFP Munich Film Partners GmbH & Company I. Produktions KG
+21649;;Sky Cinema
+21742;;Haunted Movies
+21777;;TC Productions
+21856;;Holly Wiersma Productions
+21904;;Mill Film
+21905;;C & L
+21906;;Dawliz
+22123;;TF1
+22146;;Black Bear Pictures
+22213;;TSG Entertainment
+22826;;Hasbro Studios
+22947;;3DTK
+22948;;Feelgood Entertainment
+22949;;Paradise/MGN
+23008;;87Eleven
+23019;;Evolution Entertainment
+23202;;Wigram Productions
+23271;;SOIXAN7E QUIN5E
+23272;;See Me Louisiana
+23300;;K/O Camera Toys
+23318;;Mutressa Movies
+23616;;Ciné+
+23636;;Mostow/Lieberman Productions
+23644;;2DUX²
+23700;;Abbolita Productions
+23701;;Starstream Entertainment
+23791;;Sean Bailey Productions
+23889;;Fünfte Babelsberg Film
+24049;;Sierra / Affinity
+24097;;NeoReel
+24510;;MICA Entertainment
+24902;;Macari/Edelstein
+25121;;MVL Incredible Productions
+25473;;Nu Image / Millennium Films
+25577;;Safehouse Pictures
+25673;;Cinema Vehicle Services
+25716;;Captivate Entertainment
+26149;;Kumar Mobiliengesellschaft mbH & Co. Projekt Nr. 3 KG
+26261;;Film Commission Torino-Piemonte
+26265;;Ronald Shusett/Gary Goldman
+26387;;LOVEFiLM International
+26590;;Backup Media
+26591;;Snd Films
+26995;;Animal Kingdom
+27318;;Mulholland Pictures BV
+27319;;Jagged Films
+27450;;The Combine
+27467;;Team Downey
+27497;;Star Thrower Entertainment
+27551;;Michael De Luca Productions
+27753;;Ambi Pictures
+28732;;RatPac Entertainment
+28788;;Genre Films
+29076;;Solipsist Film
+29223;;Ministero per i Beni e le Attività Culturali (MiBAC)
+29313;;Pearl Street Films
+29566;;Atresmedia Cine
+30246;;Scholastic Entertainment
+31073;;Slap Happy Productions (II)
+31076;;Simon Kinberg Productions
+31375;;Evergreen Media Group
+31828;;Avi Arad Productions
+31922;;Double Negative
+32157;;Right of Way Films
+32184;;Belle Pictures
+32300;;Lava Bear Films
+32336;;Christel Films
+32485;;Pokeepsie Films
+33603;;ShivHans Pictures
+33681;;Black Label Media
+33769;;Freedom Media
+33832;;Aperture Entertainment
+34034;;LStar Capital
+34070;;Nu Boyana Viburno
+34081;;Flynn Picture Company
+34530;;Perfect Storm Entertainment
+34725;;Moho Film
+34890;;Electronic Arts
+35442;;Radio Televisión Española (RTVE)
+35916;;Raffaella Productions
+36259;;DefyNite Films
+36326;;VIP 2 Medienfonds
+36390;;3 Arts Entertainment
+36433;;MJW Films
+38145;;Bristol Automotive
+38833;;Ian Bryce Productions
+39121;;Super Cool ManChu
+39626;;N279 Entertainment
+39649;;Huayi Brothers Media
+40890;;China Film Co.
+41077;;A24
+41096;;Lonetree Entertainment
+41624;;RatPac-Dune Entertainment
+41640;;Archer Gray
+41658;;Residaco
+41813;;Title Media
+42209;;Peter Frankfurt Productions
+42498;;Arturo González Producciones Cinematográficas S.A.
+44311;;Steven Paul Production
+44783;;Smart Entertainment
+45778;;Plan B Entertainment
+46222;;Hey Eddie
+46339;;Beagle Pug Films
+46875;;Nitrogen Studios Canada
+47169;;Le Grisbi Productions
+47354;;5150 Action
+47565;;Black Rhino Productions
+47706;;Allison Shearmur Productions
+47729;;STX Entertainment
+49096;;Yong Film
+49325;;Parkes+MacDonald Image Nation
+49389;;Broad Green Pictures
+49471;;Zero Trans Fat Productions
+49968;;Will Packer Productions
+50481;;Vendian Entertainment
+50501;;Sunstar Entertainment
+50813;;Hernández y Fernández Producciones Cinematográficas
+51145;;International Video Service
+51199;;Munich Film Partners & Company (MFP) MI2 Productions
+51860;;AI-Film
+52660;;M Productions
+52739;;Two Flints
+53247;;Impostor Pictures
+53299;;Image Nation
+53462;;Matt Tolmach Productions
+53490;;La Trini
+53637;;Friendly Films
+53638;;Ollin Studio
+53656;;Old Bull Pictures
+54050;;Linson Films
+54051;;Atman Entertainment
+54052;;Knickerbocker Films
+54687;;High Top Releasing
+54850;;Bulletproof Cupid
+55405;;Saw Productions Inc.
+55512;;Theobald Film Productions
+56832;;Hands-on Producers
+57408;;Mad Chance Productions
+57409;;22 & Indiana Pictures
+57537;;Diablo Entertainment
+57750;;Twilight Productions
+58321;;TSBD Louisiana
+58322;;TSBD Productions
+58546;;Ripken Productions
+59663;;Compadre Entertainment
+59778;;A113
+60621;;Busted Shark Productions
+60682;;Artemple - Hollywood
+60746;;Unique Features
+61409;;T2 Productions
+61791;;Feigco Entertainment
+62029;;Fremantle Productions
+62230;;Pinewood Pictures
+63443;;The Fyzz Facility
+63484;;Awesomeness Films
+63809;;Roxbury
+63924;;Broken Chair Flickz
+63925;;Crucial Films
+65359;;Flashlight Films
+65394;;Cecchi Gori Pictures
+67254;;Kaap Holland Film
+67412;;Movistar+
+68413;;Acacia Filmed Entertainment
+68506;;Gold Star Films
+68621;;St. Petersburg Clearwater Film Commission
+68738;;Black Hangar Studios
+69110;;Tank Caterpillar
+69111;;Steady Aim
+69434;;B24
+69484;;Alibaba Pictures Group
+69485;;Odin
+69656;;Brucks Entertainment
+69756;;Lightstream Entertainment
+72441;;TIK Films
+72725;;QC Entertainment
+72810;;Paradox Studios
+73118;;Wrigley Pictures
+73436;;Shinework Media
+73437;;Taihe Entertainment
+73492;;MadRiver Pictures
+73625;;BH Tilt
+73669;;Seven Bucks Productions
+74208;;Lotus Entertainment (I)
+74795;;Nu Boyana Film Studios
+76043;;Revolution Sun Studios
+76067;;Kontsept Film Company
+76068;;Digital Image Associates
+76069;;Wardour Street Pictures
+76778;;Paulilu Productions
+77845;;Monarchy Enterprises S.a.r.l.
+77973;;Lord Miller
+78093;;Paradox Film 3
+78370;;La Canica Films
+78685;;Cruel and Unusual Films
+78821;;Setient Pictures
+78995;;Cloudy Productions
+79415;;MCA  Theatricals
+79822;;Flexibon Films
+79916;;Demarest Media
+79963;;Keep Your Head
+80343;;Defining
+80344;;Punch Media
+80835;;Route One Entertainment
+81620;;TENCENT PICTURES
+82798;;SUN FILM
+82819;;Skydance Media
+82925;;Nvizage
+83024;;Levantine Films
+83644;;Sneaky Shark
+83645;;Huahua Media
+83715;;Dawn Associates
+83838;;Wanda Pictures
+83857;;Ubisoft Motion Pictures
+83871;;Perfect World (Beijing) Pictures Co.
+84041;;Pascal Pictures
+84042;;Ghostcorps
+84135;;Van Brand
+84424;;Vita-Ray Dutch Productions (III)
+84425;;Deluxe Digital Studios
+84988;;42
+85283;;Los Angeles Media Fund (LAMF)
+85425;;Waddieish Claretrap
+85510;;FilmWave
+85516;;El Bar Producciones
+85573;;Agosto la Película
+85902;;Mine Canarias
+85983;;LEGO System A/S
+86024;;Speedie Distribution
+86128;;Blind Man Productions
+86352;;Québec Production Services Tax Credit
+86561;;Stereo D
+86565;;Riche Productions
+86566;;Village Roadshow Films North America
+86655;;Media Rights Capital (MRC)
+86766;;DMC Film
+86767;;Alpha Pictures
+87854;;Taken 3
+87857;;Abu Dhabi Film Commission
+87858;;Colorado Office of Film, Television & Media
+88628;;Sor Productions
+88686;;Chartoff Winkler Productions
+88934;;Monkeypaw Productions
+88943;;Rox Productions
+88944;;Maple Cage Productions
+88981;;Seaside Entertainment
+89473;;Perfect World Pictures (Beijing)
+89818;;Wildgaze
+90517;;Secret Hideout
+90622;;Toy Fight Productions
+90733;;Neon
+90835;;Uncharted
+92138;;Amblin Partners
+92392;;606 Films
+92394;;Well Go USA Entertainment
+92395;;Rumble Entertainment
+93466;;Weying Galaxy Entertainment
+94362;;Nu Image Bulgaria

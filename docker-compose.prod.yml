@@ -1,0 +1,45 @@
+version: "3.8"
+volumes:
+  postgres_data:
+
+services:
+  app:
+    labels:
+        # config
+        - "traefik.enable=true"
+        - "traefik.docker.network=traefik-net"
+
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.rule=(${traefik_domains})"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.entrypoints=websecure"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.tls=true"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.tls.certresolver=le"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.service=${COMPOSE_PROJECT_NAME}_app"
+
+        # service
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=8000"
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
+       
+        # www(http) to www(https) routers
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_http.rule=(${traefik_domains})"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_http.entrypoints=web"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_http.middlewares=${COMPOSE_PROJECT_NAME}_app_redirect_to_https@docker"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_redirect_to_https.redirectscheme.scheme=https"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_redirect_to_https.redirectscheme.permanent=true"
+
+        # non-www(https) to www(https) routers
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_nonwww_https.rule=(${traefik_redirect_to_www})"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_nonwww_https.entrypoints=websecure"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_nonwww_https.tls=true"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_nonwww_https.tls.certresolver=le"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_nonwww_https.middlewares=${COMPOSE_PROJECT_NAME}_app_nonwww_https@docker"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.regex=^https://(.+)"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.replacement=https://www.$${1}"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.permanent=true"
+
+    networks:
+      - traefik-net
+
+networks:
+  traefik-net:
+    external: true
+    name: traefik-net
