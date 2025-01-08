@@ -3,6 +3,14 @@
 This example can be viewed on https://www.nodejs-database-app-template.marek-mraz.com/admin/movies
 
 
+
+
+
+https://github.com/user-attachments/assets/3b90c79e-1c44-4235-b974-3b7b7d36b2ac
+
+
+
+
 ## Table of contents
 
 - [Introduction](#introduction)
@@ -11,12 +19,6 @@ This example can be viewed on https://www.nodejs-database-app-template.marek-mra
 
 ❗This template is main example how **pg-altergen** can be used.❗
 
-<!-- embed video -->
-<video width="640" height="360" controls>
-  <source src="https://publicfiles.marek-mraz.com/nodejs-database-app-template.mp4" type="video/mp4">
-
-  <img src="https://publicfiles.marek-mraz.com/nodejs-database-app-template.png" alt="Nodejs Database App Template">
-</video>
 
 
 Template for building a nodejs application with a PostgreSQL database.
