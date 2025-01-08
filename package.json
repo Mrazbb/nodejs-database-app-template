@@ -1,5 +1,13 @@
 {
+  "name": "nodejs-database-app-template",
+  "version": "1.0.0",
+  "scripts": {
+    "generate:altergen": "cd ./app && npx pg-altergen generate",
+    "migrate:altergen": "cd ./app && npx pg-altergen migrate",
+    "generate:config": "cd tasks && node generate_config.js && cd .. && sleep 5 && exit"
+  },
   "dependencies": {
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "pg-altergen": "^3.0.8"
   }
 }

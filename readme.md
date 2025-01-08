@@ -1,6 +1,22 @@
 ## Nodejs Database App Template
 
-This example can be viewed on https://nodejs-database-app-template.marek-mraz.com/
+This example can be viewed on https://www.nodejs-database-app-template.marek-mraz.com/admin/movies
+
+
+## Table of contents
+
+- [Introduction](#introduction)
+- [Installation](#installation)
+
+
+❗This template is main example how **pg-altergen** can be used.❗
+
+<!-- embed video -->
+<video width="640" height="360" controls>
+  <source src="https://publicfiles.marek-mraz.com/nodejs-database-app-template.mp4" type="video/mp4">
+
+  <img src="https://publicfiles.marek-mraz.com/nodejs-database-app-template.png" alt="Nodejs Database App Template">
+</video>
 
 
 Template for building a nodejs application with a PostgreSQL database.
@@ -8,14 +24,58 @@ This template can be used as a starting point for building a new application in 
 
 Database is managed with my library pg-altergen, that I created for easy management of database versioning and migrations. In folder app/sql you can find sql scripts for creating database, schemas, views, functions, triggers, and also basic data for initial setup.
 
-In this example in folder app/sql/10_insert are data about movies for this example. 
+In this example in folder app/sql/10_insert are data about movies. 
 
 
-Project is build with Total.js framework.
 
 Links: 
 - Total.js: https://www.totaljs.com/
 - Total.js Framework (nodejs framework): https://github.com/totaljs/framework
 - Componentator (component library): https://componentator.com/
 - pg-altergen (Database versioning and migrations): https://github.com/Mrazbb/pg-altergen
+
+
+
+
+
+
+
+
+
+
+## Installation
+```bash
+git clone git@github.com:Mrazbb/nodejs-database-app-template.git
+cd nodejs-database-app-template
+npm update --save
+npm install
+cp sample.main.env main.env
+cp sample.altergen.json altergen.json
+```
+
+### Edit main.env and ./app/altergen.json files with your database credentials
+
+### Generate config
+
+```bash
+npm run generate:config
+```
+
+### Dcoker compose local
+
+```bash
+docker compose up -d
+```
+
+### Dcoker compose with traefik
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+```
+
+
+
+
+
+
 

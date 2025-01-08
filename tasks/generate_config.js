@@ -28,6 +28,9 @@ if (env[ 'cms_domains' ]) {
     env[ 'cms_domains' ].split(' ').map((domain) => {
         domains.push(domain);
     });
+
+    domains = domains.filter(item => !!item);
+    console.log('domain', domains);
 }
 
 let traefik_redirect_to_www = [];
@@ -52,7 +55,11 @@ if (env[ 'ipwhitelist' ]) {
 traefik_ipwhitelist = traefik_ipwhitelist.join(' || ');
 env[ 'traefik_ipwhitelist' ] = traefik_ipwhitelist;
 
-traefik_domains.push( "Host(`" + env[ 'domain_app' ] + "`)" );
+if (env[ 'domain_app' ]) {
+
+    traefik_domains.push( "Host(`" + env[ 'domain_app' ] + "`)" );
+}
+
 traefik_redirect_to_www = traefik_redirect_to_www.join(' || ');
 traefik_domains = traefik_domains.join(' || ');
 env[ 'traefik_redirect_to_www' ] = traefik_redirect_to_www;
