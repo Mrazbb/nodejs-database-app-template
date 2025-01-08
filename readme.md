@@ -76,7 +76,7 @@ npm run migrate:altergen
 docker compose up -d
 ```
 
-### Dcoker compose with traefik
+### Dcoker compose with traefik and public domain
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
