@@ -84,14 +84,9 @@ NEWACTION('Samples/save', {
 	permissions: 'samples',
 	input: `id:Number, name:String, countupdate:Number, createdbyid:Number, updatedbyid:Number, removedbyid:Number`,
 	action: async function ($, model) {
-		// ID
-		let id = model.id;
-		delete model.id;
-		if (!id) {
-			id = null;
-		}
 
-		let userid = await FUNC.userid($);
+		({id, model, userid} = await FUNC.helper($, model));
+
 		model.dtupdated = NOW;
 		model.updatedbyid = userid;
 
@@ -99,7 +94,19 @@ NEWACTION('Samples/save', {
 		DATA.modify(`public.tbl_sample`, model, true).where('id', id).insert(function (doc) {
 			doc.dtcreated = NOW;
 			doc.createdbyid = userid;
-		}).promise($);
+		}).callback($);
 	}
 
 });
+
+
+FUNC.prepare = async function ($, model) {
+
+	let id = model.id;
+	delete model.id;
+	if (!id) id = null;
+
+	let userid = await FUNC.userid($);
+
+	return {id, model, userid};
+}

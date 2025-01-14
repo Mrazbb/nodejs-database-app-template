@@ -63,8 +63,6 @@ function admin($) {
 		}
 	}
 
-	console.log('plugins', plugins);
-
 	$.view('admin', plugins);
 }
 
