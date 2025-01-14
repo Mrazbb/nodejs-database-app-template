@@ -84,22 +84,22 @@ NEWACTION('Samples/save', {
 	permissions: 'samples',
 	input: `id:Number, name:String, countupdate:Number, createdbyid:Number, updatedbyid:Number, removedbyid:Number`,
 	action: async function ($, model) {
+		// ID
+		let id = model.id;
+		delete model.id;
+		if (!id) {
+			id = null;
+		}
 
 		let userid = await FUNC.userid($);
+		model.dtupdated = NOW;
+		model.updatedbyid = userid;
 
-		if (model.id) {
-			model.dtupdated = NOW;
-			model.updatedbyid = await userid
-			DATA.update(`public.tbl_sample`, model).where('id', model.id).callback($);
 
-		} else {
-
-			model.dtcreated = NOW;
-			model.dtupdated = NOW;
-			model.createdbyid = await userid;
-			model.updatedbyid = await userid;
-
-			DATA.insert(`public.tbl_sample`, model).callback($);
-		}
+		DATA.modify(`public.tbl_sample`, model, true).where('id', id).insert(function (doc) {
+			doc.dtcreated = NOW;
+			doc.createdbyid = userid;
+		}).promise($);
 	}
+
 });
