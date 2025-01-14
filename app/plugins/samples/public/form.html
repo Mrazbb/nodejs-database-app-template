@@ -34,14 +34,13 @@
 
 		exports.submit = function(hide) {
 			let model = exports.get();
-			console.log('get', model);
 
 			hide && hide();
 			exports.tapi('samples_save ERROR', model, function () {
 				SETTER('notify/success', '@(Saved)');
 				hide && hide();
 				setTimeout(function() {
-					EXEC('pluginsamples/refresh')
+					EXEC('pluginsamples/reload')
 				}, 500);
 
 			});

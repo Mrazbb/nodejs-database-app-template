@@ -33,17 +33,18 @@ NEWACTION('Samples/list', {
         opt.dtcreated && builder.gridfilter('dtcreated', opt, Date);
         opt.dtupdated && builder.gridfilter('dtupdated', opt, Date);
         opt.dtremoved && builder.gridfilter('dtremoved', opt, Date);
-        opt.created_by && builder.gridfilter('createdbyname', opt, String);
-        opt.updated_by && builder.gridfilter('updatedbyname', opt, String);
-        opt.removed_by && builder.gridfilter('removedbyname', opt, String);
+        opt.createdbyname && builder.gridfilter('createdbyname', opt, String);
+        opt.createdbyname && builder.gridfilter('updatedbyname', opt, String);
+        opt.createdbyname && builder.gridfilter('removedbyname', opt, String);
 		
 		builder.where('dtremoved IS NULL');
 
         if (opt.sort) {
             builder.gridsort(opt.sort);
         } else {
-            builder.sort('dtcreated', true);
+            builder.gridsort('dtupdated_desc');
         }
+
 
         builder.paginate(opt.page, opt.limit);
         builder.callback(async function (err, response) {
@@ -85,28 +86,23 @@ NEWACTION('Samples/save', {
 	input: `id:Number, name:String, countupdate:Number, createdbyid:Number, updatedbyid:Number, removedbyid:Number`,
 	action: async function ($, model) {
 
-		({id, model, userid} = await FUNC.helper($, model));
+		({id, model, userid} = await FUNC.prepare($, model));
 
 		model.dtupdated = NOW;
 		model.updatedbyid = userid;
 
-
 		DATA.modify(`public.tbl_sample`, model, true).where('id', id).insert(function (doc) {
 			doc.dtcreated = NOW;
 			doc.createdbyid = userid;
-		}).callback($);
-	}
+		}).primarykey('id').callback(function (err, res) {
+			let response = {};
+			if (id)
+				response.id = id;
+			else 
+				response.id = res;
 
+			$.callback(response);
+		});
+	}
 });
 
-
-FUNC.prepare = async function ($, model) {
-
-	let id = model.id;
-	delete model.id;
-	if (!id) id = null;
-
-	let userid = await FUNC.userid($);
-
-	return {id, model, userid};
-}

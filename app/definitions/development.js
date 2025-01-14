@@ -15,7 +15,6 @@ ON('ready', function () {
 			}
 			
 			lastrunned = new Date().getTime();
-			console.log('Layouts changed', filename);
 
 			let id = filename.replace(/\.html/i, '');
 			await FUNC.load_layouts([id]);

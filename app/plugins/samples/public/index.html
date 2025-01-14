@@ -49,10 +49,9 @@
 		exports.init = function() {
 
 		};
-
-		// refresh website
-		exports.refresh = function (el) {
+		exports.reload = function() {
 			exports.filter();
+			console.log('reload');
 		};
 
 		exports.filter = function (type, filter, sort, page) {

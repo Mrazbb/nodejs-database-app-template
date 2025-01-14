@@ -20,7 +20,6 @@ FUNC.init_load = function () {
 
 };
 
-
 FUNC.load = async function(callback) {
 
 	EMIT('refresh_content');
@@ -83,4 +82,16 @@ FUNC.userid = async function ($) {
 	}
 	
 	return user.id;
+}
+
+
+FUNC.prepare = async function ($, model) {
+
+	let id = model.id;
+	delete model.id;
+	if (!id) id = null;
+
+	let userid = await FUNC.userid($);
+
+	return {id, model, userid};
 }
