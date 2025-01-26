@@ -95,6 +95,13 @@ NEWACTION('Samples/save', {
 			doc.dtcreated = NOW;
 			doc.createdbyid = userid;
 		}).primarykey('id').callback(function (err, res) {
+
+			if (err) {
+				$.invalid(err);
+				printerr("Error saving sample", err, model);
+				return;
+			}
+			
 			let response = {};
 			if (id)
 				response.id = id;

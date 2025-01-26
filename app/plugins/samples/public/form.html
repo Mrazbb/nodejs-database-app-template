@@ -1,4 +1,4 @@
-<ui-component name="box" path="common.form" config="if:~PATH~;icon:ti ti-copy;autofocus:true;reload:?/reload;scrollbar:1;submit:?/submit;width:800" class="hidden" plugin="~PATH~">
+<ui-component name="box" path="common.form" config="if:~PATH~;icon:ti ti-copy;autofocus:true;reload:?/reload;scrollbar:1;submit:?/submit;width:800;cancel:?/cancel" class="hidden" plugin="~PATH~">
 
 	<div class="padding bg-smoke npb">
 		<div class="padding">
@@ -32,11 +32,16 @@
 			com.reconfigure({ title: id ? '@(Update page)' : '@(Create page)' });
 		};
 
+		exports.cancel = function() {
+			FUNC.savequery('sampleid', null);
+		};
+
 		exports.submit = function(hide) {
 			let model = exports.get();
 
 			hide && hide();
 			exports.tapi('samples_save ERROR', model, function () {
+				FUNC.savequery('sampleid', null);
 				SETTER('notify/success', '@(Saved)');
 				hide && hide();
 				setTimeout(function() {

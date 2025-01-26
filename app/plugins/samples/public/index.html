@@ -51,7 +51,10 @@
 		};
 		exports.reload = function() {
 			exports.filter();
-			console.log('reload');
+			let id = FUNC.readquery('sampleid');
+			if (id) {
+				exports.update(id);
+			}
 		};
 
 		exports.filter = function (type, filter, sort, page) {
@@ -75,6 +78,7 @@
 		exports.update = function (el) {
 			var id = ATTRD(el);
 			console.log('update', id);	
+			FUNC.savequery('sampleid', id);
 			exports.tapi('samples_read @showloading ERROR', { id: id }, function (response) {
 				SET('formsample @reset @hideloading', response);
 				SET('*form', 'formsample');

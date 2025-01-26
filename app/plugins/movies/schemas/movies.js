@@ -143,7 +143,6 @@ NEWACTION('Movies/save', {
 			payload.dtupdated = NOW;
 			model.id = await DATA.insert(`public.tbl_movie`, payload).primarykey('id').promise();
 		}
-		console.log('genres', model.genreids);
 
 
 		// update genres
@@ -206,5 +205,38 @@ NEWACTION('Movies/save', {
 		}
 
 		$.callback(model);
+	}
+});
+
+// paginate through movies
+NEWACTION('Movies/process', {
+	name: 'Process Movie',
+	permissions: 'movies',
+	input: `id:Number, ids:[Number]`,
+	action: async function ($, model) {
+
+		let limit = 100;
+        let where = ['TRUE'];
+
+		if (model.id)
+			where.push(`id = ${model.id}`);
+
+		if (model.ids)
+			where.push(`id IN (${model.ids.join(',')})`);
+		
+		let maxlimit = await DATA.count(`public.tbl_movie`).where(where.join(' AND ')).promise();
+
+		const processmovies = async (item) => {
+			console.log(item.id);
+		}
+
+		for (let page = 1; page <= (maxlimit / limit + 1); page++) {
+			let items = await DATA.find(`public.tbl_movie`).where(where.join(' AND ')).paginate(page, limit, maxlimit).sort('id').promise();
+			for (let item of items) {
+				await processmovies(item);
+			}
+		}
+
+		$.callback(true);
 	}
 });

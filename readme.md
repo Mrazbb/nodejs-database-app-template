@@ -5,6 +5,11 @@ This example can be viewed on https://www.nodejs-database-app-template.marek-mra
 
 
 
+## REST API TEMPLATE
+
+[ Processing throught all records NEWACTION('Movies/process') ](app/plugins/movies/schemas/movies.js)
+
+
 
 https://github.com/user-attachments/assets/3b90c79e-1c44-4235-b974-3b7b7d36b2ac
 
