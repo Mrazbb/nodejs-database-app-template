@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "app",
   "description": "Node.js (CMS) Content Management System",
   "version": "1.0.0",
   "main": "index.js",
@@ -23,8 +23,8 @@
     "update-altergen": "cd scripts && ./update_altergen.sh"
   },
   "keywords": [
-    "cms"
+    "app"
   ],
-  "author": "Total.js",
+  "author": "Marek Mráz",
   "license": "MIT"
 }

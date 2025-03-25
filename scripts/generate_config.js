@@ -60,8 +60,8 @@ if (env[ 'domain_app' ]) {
     traefik_domains.push( "Host(`" + env[ 'domain_app' ] + "`)" );
 }
 
-traefik_redirect_to_www = traefik_redirect_to_www.join(' || ');
-traefik_domains = traefik_domains.join(' || ');
+traefik_redirect_to_www = "'" + traefik_redirect_to_www.join(' || ') + "'";
+traefik_domains = "'" + traefik_domains.join(' || ') + "'";
 env[ 'traefik_redirect_to_www' ] = traefik_redirect_to_www;
 env[ 'traefik_domains' ] = traefik_domains;
 

@@ -14,7 +14,7 @@ services:
       - ./config:/opt/app/config
       - ./.env:/opt/app/.env
       - ./app:/opt/app
-    entrypoint: [ "/bin/sh", "-c" ,"mkdir -p logs && npm install 2>&1 | tee -a logs/debug.log && npm i -g nodemon && node index.js  2>&1 | tee -a logs/debug.log"]
+    entrypoint: ["./entrypoint.sh"]
     environment:
       - debug=true
       - NODE_ENV=${environment}

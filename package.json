@@ -2,12 +2,27 @@
   "name": "nodejs-database-app-template",
   "version": "1.0.0",
   "scripts": {
-    "generate:altergen": "cd ./app && npx pg-altergen generate",
-    "migrate:altergen": "cd ./app && npx pg-altergen migrate",
-    "generate:config": "cd tasks && node generate_config.js && cd .. && sleep 5 && exit"
+
+    "altergen:generate": "./scripts/altergen_run.sh generate",
+    "altergen:migrate": "./scripts/altergen_run.sh migrate",
+    "altergen": "npm run altergen:generate && npm run altergen:migrate",
+
+    "config:generate": "cd scripts && node generate_config.js && cd .. && sleep 5 && exit",
+
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "restart": "docker compose restart",
+    "stop": "docker compose stop",
+    "kill": "docker compose kill",
+
+
+    "logs": "./scripts/logs.sh",
+    "exec": "./scripts/exec.sh"
+
   },
   "dependencies": {
     "dotenv": "^16.4.7",
     "pg-altergen": "^3.0.8"
   }
 }
+./scripts/altergen_run.sh

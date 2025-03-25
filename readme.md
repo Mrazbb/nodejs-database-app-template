@@ -52,6 +52,7 @@ npm update --save
 npm install
 cp sample.main.env main.env
 cp app/sample.altergen.json app/altergen.json
+chmod +x app/entrypoint.sh
 ```
 
 ### Edit main.env and ./app/altergen.json files with your database credentials
@@ -75,17 +76,62 @@ File was generated in folder app/sql/ (alter.sql) with all information to create
 npm run migrate:altergen
 ```
 
-### Dcoker compose local
 
-```bash
-docker compose up -d
+### Docker Compose Configuration
+#### Step 1. update main.env
+**Development: (main.env)**
+```env
+COMPOSE_FILE=docker-compose.yml:docker-compose.traefik.yml:docker-compose.dev.yml
 ```
 
-### Dcoker compose with traefik and public domain
+**Production: (main.env)**
+```env
+COMPOSE_FILE=docker-compose.yml:docker-compose.traefik.yml
+```
+
+**Local: (main.env)**
+```env
+COMPOSE_FILE=docker-compose.yml
+```
+
+
+#### Step 2: Create NPM scripts in `package.json`
+
+Add the following scripts to your `package.json`:
+
+```json
+"scripts": {
+    "up": "docker compose up -d",
+    "down": "docker compose down",
+    "restart": "docker compose restart",
+    "stop": "docker compose stop",
+    "kill": "docker compose kill"
+}
+```
+
+
+#### Step 3: Usage
+
+To specify your environment, copy or rename the relevant `.env` file to `.env`:
+
+Then run the Docker Compose commands easily:
 
 ```bash
-docker compose -f docker-compose.yml -f docker-compose.prod.yml up -d
+npm run up        # Start containers
+docker ps         # Verify containers
+
+npm run down      # Stop and remove containers
+npm run restart   # Restart containers
+npm run stop      # Stop containers
+npm run kill      # Forcefully kill containers
 ```
+
+
+This setup simplifies environment management and script usage, ensuring your Docker workflows remain clear and maintainable.
+
+
+
+
 
 
 
