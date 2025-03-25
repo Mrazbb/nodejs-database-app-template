@@ -25,4 +25,3 @@
     "pg-altergen": "^3.0.8"
   }
 }
-./scripts/altergen_run.sh
