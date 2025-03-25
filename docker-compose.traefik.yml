@@ -13,7 +13,7 @@ services:
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.service=${COMPOSE_PROJECT_NAME}_app"
 
         # service
-        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=8000"
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=${app_port}"
         - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
        
         # www(http) to www(https) routers

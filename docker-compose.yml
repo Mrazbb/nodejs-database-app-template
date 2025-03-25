@@ -19,8 +19,6 @@ services:
       - debug=true
       - NODE_ENV=${environment}
       - CONTAINER=app
-    ports:
-      - ${app_port}:8000
 
     networks:
       - postgres-net
@@ -37,14 +35,10 @@ services:
       POSTGRES_DB: ${postgres_db}
     volumes: 
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - ${postgres_port}:5432
     networks:
       - postgres-net
 
  
- 
-
 networks:
   postgres-net:
     name: ${COMPOSE_PROJECT_NAME}_postgres-net
