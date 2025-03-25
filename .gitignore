@@ -15,8 +15,8 @@ app/index.pid
 app/package-lock.json
 app/resources/
 
-app/sql/alter.sql
-app/alter.sql
+sql/alter.sql
+sql/drop_columns.sql
 # ESHOP
 push.sh
 backup.sql
