@@ -38,3 +38,4 @@ app/index.js.map
 app/index.pid
 sql/drop_columns.sql
 package-lock.json
+altergen.json
