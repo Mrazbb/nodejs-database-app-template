@@ -14,13 +14,11 @@ services:
       - ./config:/opt/app/config
       - ./.env:/opt/app/.env
       - ./app:/opt/app
-    # entrypoint: ["./entrypoint.${environment}.sh"]
+    entrypoint: ["./entrypoint.${environment}.sh"]
 
     environment:
-      - debug=true
       - NODE_ENV=${environment}
-      - CONTAINER=app
-
+      - CONTAINER=${COMPOSE_PROJECT_NAME}_app
     networks:
       - postgres-net
     depends_on:
