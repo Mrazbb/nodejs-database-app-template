@@ -44,41 +44,28 @@ Links:
 
 
 
-## Installation
+## Create Project
 ```bash
 git clone git@github.com:Mrazbb/nodejs-database-app-template.git
 cd nodejs-database-app-template
+chmod +x ./scripts/*.sh
 npm update --save
 npm install
 cp sample.main.env main.env
 cp app/sample.altergen.json app/altergen.json
 chmod +x app/entrypoint.sh
 ```
+## Edit main.env and altergen.json files with your database credentials
 
-### Edit main.env and ./app/altergen.json files with your database credentials
-
-### Generate config
+## Generate config (.env and config) from main.env
 
 ```bash
 npm run generate:config
 ```
 
-### Generate altergen
 
-```bash
-npm run generate:altergen
-```
-File was generated in folder app/sql/ (alter.sql) with all information to create database, schemas, views, functions, triggers, and also basic data for initial setup.
-
-### Migrate alter script to database
-
-```bash
-npm run migrate:altergen
-```
-
-
-### Docker Compose Configuration
-#### Step 1. update main.env
+## Docker Compose Configuration
+### Step 1. update main.env
 **Development: (main.env)**
 ```env
 COMPOSE_FILE=docker-compose.yml:docker-compose.traefik.yml:docker-compose.dev.yml
@@ -95,7 +82,7 @@ COMPOSE_FILE=docker-compose.yml
 ```
 
 
-#### Step 2: Create NPM scripts in `package.json`
+### Step 2: Create NPM scripts in `package.json`
 
 Add the following scripts to your `package.json`:
 
@@ -110,7 +97,7 @@ Add the following scripts to your `package.json`:
 ```
 
 
-#### Step 3: Usage
+### Step 3: Usage
 
 To specify your environment, copy or rename the relevant `.env` file to `.env`:
 
@@ -126,8 +113,23 @@ npm run stop      # Stop containers
 npm run kill      # Forcefully kill containers
 ```
 
+## Starting the project
 
-This setup simplifies environment management and script usage, ensuring your Docker workflows remain clear and maintainable.
+```bash
+npm run up
+```
+
+### Create Database from definition from the folder SQL
+
+```bash
+npm run altergen:build-image
+npm run altergen
+```
+
+
+
+
+
 
 
 

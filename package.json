@@ -2,7 +2,7 @@
   "name": "nodejs-database-app-template",
   "version": "1.0.0",
   "scripts": {
-
+    "altergen:build-image": " ./scripts/altergen_build.sh",
     "altergen:generate": "./scripts/altergen_run.sh generate",
     "altergen:migrate": "./scripts/altergen_run.sh migrate",
     "altergen": "npm run altergen:generate && npm run altergen:migrate",
@@ -17,7 +17,12 @@
 
 
     "logs": "./scripts/logs.sh",
-    "exec": "./scripts/exec.sh"
+    "exec": "./scripts/exec.sh",
+
+
+    "postgres:backup": "./scripts/postgres.sh backup",
+    "postgres:restore": "./scripts/postgres.sh restore"
+    
 
   },
   "dependencies": {
