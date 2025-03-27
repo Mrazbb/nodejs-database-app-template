@@ -20,6 +20,7 @@ const options = {};
 // options.edit = 'wss://www.yourcodeinstance.com/?id=projectname'
 options.release = process.argv.includes('--release');
 
+
 // Service mode:
 options.servicemode = process.argv.includes('--service') || process.argv.includes('--servicemode');
 // options.servicemode = 'definitions,modules,config';

@@ -118,13 +118,37 @@ npm run kill      # Forcefully kill containers
 ```bash
 npm run up
 ```
+## LOGS
 
-### Create Database from definition from the folder SQL
+```bash
+npm run logs app
+npm run logs postgres
+```
+
+## Shell inside the container
+
+```bash
+npm run exec app
+npm run exec postgres
+```
+
+
+## Create Database from definition from the folder SQL
 
 ```bash
 npm run altergen:build-image
 npm run altergen
 ```
+
+## Backup and Restore Postgres
+
+```bash
+npm run postgres:backup [backup.sql]
+npm run postgres:restore [backup.sql]
+```
+
+
+
 
 
 

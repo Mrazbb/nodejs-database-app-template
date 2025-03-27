@@ -16,7 +16,6 @@ RUN npm install
 
 EXPOSE 8000
 
-# CMD ["/bin/sh", "-c", "npm start --release 2>&1 | tee -a logs/debug.log"]
 
 
-CMD [ "npm", "start" ]
+CMD [ "node", "index.js" ]
