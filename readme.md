@@ -60,7 +60,7 @@ chmod +x app/entrypoint.sh
 ## Generate config (.env and config) from main.env
 
 ```bash
-npm run generate:config
+npm run config:generate
 ```
 
 
