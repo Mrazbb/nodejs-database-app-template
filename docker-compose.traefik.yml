@@ -6,15 +6,15 @@ services:
         - "traefik.enable=true"
         - "traefik.docker.network=traefik-net"
 
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.rule=(${app_traefik_domains})"
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.entrypoints=websecure"
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.tls=true"
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.tls.certresolver=le"
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.service=${COMPOSE_PROJECT_NAME}_app"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.rule=(${app_traefik_domains})"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.entrypoints=websecure"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls=true"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls.certresolver=le"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.service=${COMPOSE_PROJECT_NAME}_app"
 
         # service
-        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=${app_port}"
-        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app_main.loadbalancer.server.port=${app_port}"
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app_main.loadbalancer.server.scheme=http"
        
         # www(http) to www(https) routers
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_http.rule=(${app_traefik_domains})"
