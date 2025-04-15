@@ -7,7 +7,7 @@
     "altergen:migrate": "./scripts/altergen_run.sh migrate",
     "altergen": "npm run altergen:generate && npm run altergen:migrate",
 
-    "config:generate": "cd scripts && node generate_config.js && cd .. && sleep 5 && exit",
+    "config:generate": "cd scripts && node generate_config.js && cd .. ",
 
     "up": "docker compose up -d",
     "down": "docker compose down",
@@ -21,7 +21,9 @@
 
 
     "postgres:backup": "./scripts/postgres.sh backup",
-    "postgres:restore": "./scripts/postgres.sh restore"
+    "postgres:restore": "./scripts/postgres.sh restore",
+    "postgres:connect": "./scripts/postgres.sh connect",
+    "postgres": "./scripts/postgres.sh"
     
 
   },

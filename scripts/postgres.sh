@@ -8,6 +8,8 @@ source .env
 : "${postgres_user:?Variable not set or empty}"
 : "${postgres_db:?Variable not set or empty}"
 : "${docker_container_pg:?Variable not set or empty}"
+: "${postgres_external_port:?Variable not set or empty}"
+
 
 COMMAND=$1
 FILE=${2:-backup.sql}
@@ -34,8 +36,31 @@ case "$COMMAND" in
     echo "Restore completed successfully from: $FILE"
     ;;
 
+
+  connect)
+    # env dev stage prod (gray, blue, green) in hex
+    case "$environment" in
+      dev)
+        COLOR="cbcbcb"
+        ;;
+      stage)
+        COLOR="000fff"
+        ;;
+      prod)
+        COLOR="ff0000"
+        ;;
+      *)
+        COLOR="cbcbcb"
+        ;;
+    esac
+
+    LINK="postgresql+ssh://@$SSH_HOST_NAME/$postgres_user:$postgres_password@localhost:$postgres_external_port/$postgres_db?statusColor=$COLOR&env=$environment&name=$COMPOSE_PROJECT_NAME+$environment&tLSMode=0&usePrivateKey=true&safeModeLevel=0&advancedSafeModeLevel=0&driverVersion=0&lazyload=true"
+    echo -e "\n\n$LINK\n\n"
+    echo -e "open -a TablePlus \"$LINK\" \n\n"
+    ;;
+
   *)
-    echo "Usage: $0 {backup|restore} [filename.sql]"
+    echo "Usage: $0 {backup|restore|connect} [filename.sql]"
     exit 1
     ;;
 esac
