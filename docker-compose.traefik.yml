@@ -11,7 +11,7 @@ services:
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls=true"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls.certresolver=le"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.service=${COMPOSE_PROJECT_NAME}_app"
-
+        
         # service
         - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=${app_port}"
         - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
@@ -32,7 +32,6 @@ services:
         - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.regex=^https://(.+)"
         - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.replacement=https://www.$${1}"
         - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.permanent=true"
-
     networks:
       - traefik-net
 
