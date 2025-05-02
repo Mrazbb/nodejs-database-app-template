@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 
 // Resolve paths for configuration files
-const config = path.resolve(__dirname, '../main.env');
-const sampleConfig = path.resolve(__dirname, '../sample.main.env');
+const config = path.resolve(__dirname, '../.env.main');
+const sampleConfig = path.resolve(__dirname, '../.env.main.sample');
 
 // Check if the main configuration file exists
 if (!fs.existsSync(config)) {

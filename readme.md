@@ -51,13 +51,13 @@ cd nodejs-database-app-template
 chmod +x ./scripts/*.sh
 npm update --save
 npm install
-cp sample.main.env main.env
+cp .env.main.sample .env.main
 cp app/sample.altergen.json app/altergen.json
 chmod +x app/entrypoint.sh
 ```
-## Edit main.env and altergen.json files with your database credentials
+## Edit .env.main and altergen.json files with your database credentials
 
-## Generate config (.env and config) from main.env
+## Generate config (.env and config) from .env.main
 
 ```bash
 npm run config:generate
@@ -65,18 +65,18 @@ npm run config:generate
 
 
 ## Docker Compose Configuration
-### Step 1. update main.env
-**Development: (main.env)**
+### Step 1. update .env.main
+**Development: (.env.main)**
 ```env
 COMPOSE_FILE=docker-compose.yml:docker-compose.traefik.yml:docker-compose.dev.yml
 ```
 
-**Production: (main.env)**
+**Production: (.env.main)**
 ```env
 COMPOSE_FILE=docker-compose.yml:docker-compose.traefik.yml
 ```
 
-**Local: (main.env)**
+**Local: (.env.main)**
 ```env
 COMPOSE_FILE=docker-compose.yml
 ```

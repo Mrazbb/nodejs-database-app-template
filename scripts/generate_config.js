@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Read and parse the .env file
-const envFilePath = path.resolve(__dirname, '../main.env');
+const envFilePath = path.resolve(__dirname, '../.env.main');
 const envConfig = dotenv.parse(fs.readFileSync(envFilePath));
 const env = { ...envConfig };
 
@@ -78,18 +78,6 @@ const altergenConfig = {
     insert_if_not_exists: env['altergen_insert_if_not_exists'] === 'true'
 };
 
-
-if (altergenConfig.postgres && altergenConfig.source_dir && altergenConfig.output_file) {
-    // Write to altergen.json
-    fs.writeFileSync(
-        path.resolve(__dirname, '../altergen.json'),
-        JSON.stringify(altergenConfig, null, 4)
-    );
-
-    console.log('altergen.json generated successfully');
-} else {
-    console.log('altergen.json generation failed');
-}
 
 
 
