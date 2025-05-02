@@ -28,7 +28,6 @@ echo "Using drop columns file: ${altergen_drop_columns_file}"
 
 docker run --rm -it   \
     --network=$POSTGRES_NETWORK    \
-    -v $(pwd)/altergen.json:/opt/app/altergen.json    \
     -v $(pwd)/.env:/opt/app/.env    \
     -v $(pwd)/sql:/opt/app/sql    \
     -v $(pwd)/$(dirname "${altergen_output_file}"):/opt/app/$(dirname "${altergen_output_file}")   \

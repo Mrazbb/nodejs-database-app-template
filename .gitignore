@@ -1,6 +1,5 @@
 data
 
-
 # app
 app/tmp/*
 app/logs/*
