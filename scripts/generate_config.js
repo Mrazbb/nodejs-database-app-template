@@ -26,8 +26,11 @@ if (apps?.length  && apps.length > 0) {
         const domains = env[domainsKey].split(' ').map(domain => domain.trim()).filter(domain => domain !== '');
 
         env[`${app}_traefik_domains`] =  "'" + domains.map(domain => `Host(\`${domain}\`)`).join(' || ') + "'";
-        if (env[redirectKey]) {
+        if (env[redirectKey] === 'true') {
+            console.log('redirectKey', env[redirectKey]);
             env[`${app}_traefik_redirect_to_www`] =  "'" + domains.map(domain => `Host(\`${domain.replace('www.', '')}\`)`).join(' || ') + "'";
+        } else {
+            env[`${app}_traefik_redirect_to_www`] =  "'Host()'"
         }
 
         if (env[ipwhitelistKey]) {
@@ -77,11 +80,6 @@ const altergenConfig = {
     update: env['altergen_update'] === 'true',
     insert_if_not_exists: env['altergen_insert_if_not_exists'] === 'true'
 };
-
-
-
-
-
 
 
 

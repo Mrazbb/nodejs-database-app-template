@@ -12,7 +12,11 @@ source .env
 
 
 COMMAND=$1
-FILE=${2:-backup.sql}
+FILE=${2:-data/sql/backup.sql}
+
+# Create directory for the backup file if it doesn't exist
+DIR=$(dirname "$FILE")
+mkdir -p "$DIR"
 
 case "$COMMAND" in
   backup)
