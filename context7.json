@@ -1,0 +1,14 @@
+{
+  "$schema": "https://context7.com/schema/context7.json",
+  "projectTitle": "nodejs-database-app-template",
+  "description": "",
+  "folders": ["docs"],
+  "excludeFolders": ["src"],
+  "excludeFiles": [],
+  "rules": [""],
+  "previousVersions": [
+    {
+      "tag": "v1.2.1",
+      "title": "version 1.2.1"
+    }
+  ]
