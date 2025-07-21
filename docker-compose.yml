@@ -16,6 +16,8 @@ services:
       - ./app:/opt/app
       - /opt/app/node_modules
     entrypoint: ["./entrypoint.${environment}.sh"]
+    ports:
+      - ${app_external_port}:${app_port}
 
     environment:
       - NODE_ENV=${environment}

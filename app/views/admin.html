@@ -12,6 +12,8 @@
 	<link href="@{'%cdn'}/spa.min@19.css" rel="stylesheet" />
 	<script src="@{'%cdn'}/spa.min@19.js"></script>
 
+	<link href="/css/all.min.css" rel="stylesheet" />
+
 	<link href="/admin-ui.css" rel="stylesheet" />
 
 	<link href="/css/all.min.css" rel="stylesheet" />
@@ -51,13 +53,14 @@
 	<ui-component name="dropfiles" config="exec:common/dropfiles;check:common/dropcheck" class="hidden">@(Drag &amp; Drop files here)</ui-component>
 
 	<header>
+		<button class="mobile-button" aria-label="Toggle menu"><i class="ti ti-menu"></i></button>
 		<a href="/" title="@(Website)" target="_blank"><i class="ti ti-globe"></i></a>
 		<ui-component name="breadcrumb" path="common.breadcrumb" config="$assign:BREADCRUMB;style:2;root:@(Home);icon:ti ti-home;rooturl:/admin/;title:@{'%name'}" class="invisible">
 			<ui-component name="virtualwire" path="common.page" class="toolbar" style="float:right"></ui-component>
 		</ui-component>
 	</header>
 
-	<ui-component name="navlayout" path="?.menu" config="parent:window;width:200" class="invisible">
+	<ui-component name="navlayout" path="common.menu" config="parent:window;hide:xs" class="invisible">
 		<section>
 			<ui-component name="aselected" path="common.page" config="selector:div.item;attr:data-url">
 				<ui-component name="viewbox" path="common.page" config="parent:window;margin:60">
@@ -127,6 +130,7 @@
 		common.api = common.root = '@{CONF.$api}';
 		common.redirect = REDIRECT;
 		common.root = '/admin/';
+		common.menu = false;
 
 		ENV('indentation', 201);
 		ENV('margin', 60);
@@ -294,6 +298,12 @@
 
 		ON('@flag hideloading', function() {
 			SETTER('loading/hide', 1000);
+		});
+
+		$(document).on('click', '.mobile-button', function() {
+			var path = 'common.menu';
+			SET(path, !GET(path));
+			console.log(GET(path));
 		});
 
 		// TODO

@@ -64,3 +64,28 @@ header > a { float: left; width: 60px; height: 40px; line-height: 39px; text-ali
 .ui-menu-area { z-index: 500; }
 
 .ui-spotlight-layer { z-index: 1000 !important; }
+
+.mobile-button {
+	display: none;
+	float: left;
+	width: 60px;
+	height: 40px;
+	line-height: 39px;
+	text-align: center;
+	font-size: 20px;
+	color: var(--color);
+	border: 0;
+	background-color: transparent;
+	margin: 9px 0 0 0;
+	border-right: 1px solid #E0E0E0;
+}
+
+@media(max-width: 768px) {
+	.mobile-button {
+		display: block;
+	}
+
+	header > a {
+		margin-right: 0;
+	}
+}
