@@ -1,9 +1,10 @@
 
 // LIST
-NEWACTION('Samples/list', {
+NEWACTION('Samples|list', {
     name: 'List Samples',
     // permissions: 'samples', // TODO: add permissions
 	input: `page:number, limit:number, sort:string, id:string, name:string, dtcreated:date, dtupdated:date, dtremoved:date, createdby:string, updatedby:string, removedby:string`,
+    route: '+API    ?',
 	action: async function ($, model) {
 		var opt = model;
 
@@ -63,8 +64,9 @@ NEWACTION('Samples/list', {
 });
 
 // READ
-NEWACTION('Samples/read', {
+NEWACTION('Samples|read', {
 	name: 'Read Samples',
+    route: '+API    ?',
 	// permissions: 'samples', // TODO: add permissions
 	input: `*id:Number`,
 	action: async function ($, model) {
@@ -74,20 +76,22 @@ NEWACTION('Samples/read', {
 
 
 // REMOVE
-NEWACTION('Samples/remove', {
+NEWACTION('Samples|remove', {
 	name: 'Remove Sample',
 	permissions: 'samples',
 	input: `id:Number`,
+	route: '+API    ?',
 	action: async function ($, model) {
 		DATA.remove(`public.tbl_sample`).id(model.id).callback($);
 	}
 });
 
 // SAVE
-NEWACTION('Samples/save', {
+NEWACTION('Samples|save', {
 	name: 'Update Sample',
 	permissions: 'samples',
 	input: `id:Number, name:String, countupdate:Number, createdbyid:Number, updatedbyid:Number, removedbyid:Number`,
+	route: '+API    ?',
 	action: async function ($, model) {
 
 		({id, model, userid} = await FUNC.prepare($, model));
