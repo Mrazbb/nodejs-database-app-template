@@ -8,11 +8,11 @@
 <div class="virtualwire hidden" data-if="CLASS">
 	<ui-plugin>
 		<div style="display:flex">
-			<ui-bind path="?.checked">
+			<!-- <ui-bind path="?.checked">
 				<button class="exec" data-exec="?/create"><i class="ti ti-plus-circle"></i>@(Create)</button>
 				<button class="exec" data-exec="?/refresh"><i class="ti ti-refresh"></i>@(Refresh)</button>
 				<button class="exec D" data-exec="?/menu"><i class="ti ti-cog"></i>@(Options)</button>
-			</ui-bind>
+			</ui-bind> -->
 		</div>
 	</ui-plugin>
 </div>
@@ -51,7 +51,7 @@
 		};
 		exports.reload = function() {
 			exports.filter();
-			let id = FUNC.readquery('sampleid');
+			let id = FUNC.readquery('staffid');
 			if (id) {
 				exports.update(id);
 			}

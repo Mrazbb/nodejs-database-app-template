@@ -14,12 +14,14 @@
 
 	<link href="/css/all.min.css" rel="stylesheet" />
 
-	<link href="/admin-ui.css" rel="stylesheet" />
 
 	<link href="/css/all.min.css" rel="stylesheet" />
-	<script src="/admin-ui.js"></script>
+
 	<script src="/js/versatile.js"></script>
 	<script src="@{REPO.ui}"></script>
+
+	<link href="/admin-ui.css" rel="stylesheet" />
+	<script src="/admin-ui.js"></script>
 	@{import('meta', 'head', 'default.js + func.js', 'default.css', 'favicon.ico')}
 </head>
 <body class="invisible">
@@ -61,7 +63,7 @@
 	</header>
 
 	<ui-component name="navlayout" path="common.menu" config="parent:window;hide:xs" class="invisible">
-		<section>
+		<section style="background-color: #f0f0f0;">
 			<ui-component name="aselected" path="common.page" config="selector:div.item;attr:data-url">
 				<ui-component name="viewbox" path="common.page" config="parent:window;margin:60">
 					<div class="nav">

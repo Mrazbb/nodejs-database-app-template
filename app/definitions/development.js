@@ -6,37 +6,8 @@ ON('ready', function () {
 
     let lastrunned = new Date().getTime();
 	// ONLY DEVELOPMENT
-	if(process.env.NODE_ENV == 'development') {
+	if(process.env.NODE_ENV == 'dev') {
 				
-		fs.watch(PLUGINS.layouts.path(), { recursive: true }, async (eventType, filename) => {
-			
-			if (lastrunned + 300 > new Date().getTime()) {
-				return;
-			}
-			
-			lastrunned = new Date().getTime();
-
-			let id = filename.replace(/\.html/i, '');
-			await FUNC.load_layouts([id]);
-			EMIT('refresh_content');
-
-		});
-
-		fs.watch(PLUGINS.widgets.path(), { recursive: true }, async (eventType, filename) => {
-
-			if (lastrunned + 300 > new Date().getTime()) {
-				return;
-			}
-			
-			lastrunned = new Date().getTime();
-			console.log('Widgets changed', filename);
-
-			let id = filename.replace(/\.html/i, '');
-			await FUNC.load_widgets([ id ]);
-			await ACTION('Pages/ContentProcessing', { widgets: [ id ], prerender:true }).user({ sa: true }).promise();
-			EMIT('refresh_content');
-		});
-
 		fs.watch(PATH.root('components'), { recursive: true }, async (eventType, filename) => {
 			
 			if (lastrunned + 300 > new Date().getTime()) {
@@ -49,9 +20,6 @@ ON('ready', function () {
 			await FUNC.load_components();
 			EMIT('refresh_content');
 		});
-
-
-
 	}
 });
 

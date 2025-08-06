@@ -21,8 +21,6 @@ CREATE TABLE "public"."tbl_sample" (
 	"dtupdated" TIMESTAMP,
     "dtremoved" TIMESTAMP,
     
-
-
     CONSTRAINT "tbl_product_createdbyid_fkey" FOREIGN KEY ("createdbyid") REFERENCES "public"."tbl_user"("id") MATCH SIMPLE ON UPDATE CASCADE ON DELETE SET NULL,
     CONSTRAINT "tbl_product_updatedbyid_fkey" FOREIGN KEY ("updatedbyid") REFERENCES "public"."tbl_user"("id") MATCH SIMPLE ON UPDATE CASCADE ON DELETE SET NULL,
     CONSTRAINT "tbl_product_removedbyid_fkey" FOREIGN KEY ("removedbyid") REFERENCES "public"."tbl_user"("id") MATCH SIMPLE ON UPDATE CASCADE ON DELETE SET NULL,

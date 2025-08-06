@@ -27,26 +27,30 @@ NEWACTION('Samples/list', {
 
 		var builder = DATA.list(`public.view_sample_list`);
 
-  		opt.id && builder.in('id', opt.id);
-		opt.name && builder.gridfilter('name', opt, String);
+		builder.autoquery($.query, 'id:integer,name:string', opt.sort ? opt.sort : 'dtcreated_desc', 50);
 
-        opt.dtcreated && builder.gridfilter('dtcreated', opt, Date);
-        opt.dtupdated && builder.gridfilter('dtupdated', opt, Date);
-        opt.dtremoved && builder.gridfilter('dtremoved', opt, Date);
-        opt.createdbyname && builder.gridfilter('createdbyname', opt, String);
-        opt.createdbyname && builder.gridfilter('updatedbyname', opt, String);
-        opt.createdbyname && builder.gridfilter('removedbyname', opt, String);
+  		// opt.id && builder.in('id', opt.id);
+		// opt.name && builder.gridfilter('name', opt, String);
+
+		
+        // opt.dtcreated && builder.gridfilter('dtcreated', opt, Date);
+        // opt.dtupdated && builder.gridfilter('dtupdated', opt, Date);
+        // opt.dtremoved && builder.gridfilter('dtremoved', opt, Date);
+        // opt.createdbyname && builder.gridfilter('createdbyname', opt, String);
+        // opt.createdbyname && builder.gridfilter('updatedbyname', opt, String);
+        // opt.createdbyname && builder.gridfilter('removedbyname', opt, String);
 		
 		builder.where('dtremoved IS NULL');
 
-        if (opt.sort) {
-            builder.gridsort(opt.sort);
-        } else {
-            builder.gridsort('dtupdated_desc');
-        }
+        // if (opt.sort) {
+        //     builder.gridsort(opt.sort);
+        // } else {
+        //     builder.gridsort('dtupdated_desc');
+        // }
 
 
         builder.paginate(opt.page, opt.limit);
+
         builder.callback(async function (err, response) {
             if (err) {
                 $.invalid(err);

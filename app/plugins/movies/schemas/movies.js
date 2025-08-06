@@ -28,7 +28,6 @@ NEWACTION('Movies/list', {
 
 
 		var builder = DATA.list(`public.view_movie`);
-		console.log(opt);
 
   		opt.id && builder.in('id', opt.id);
 		opt.title && builder.gridfilter('title', opt, String);
