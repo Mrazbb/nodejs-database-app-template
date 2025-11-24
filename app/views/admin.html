@@ -14,14 +14,12 @@
 
 	<link href="/css/all.min.css" rel="stylesheet" />
 
-
 	<link href="/css/all.min.css" rel="stylesheet" />
-
 	<script src="/js/versatile.js"></script>
-	<script src="@{REPO.ui}"></script>
 
 	<link href="/admin-ui.css" rel="stylesheet" />
-	<script src="/admin-ui.js"></script>
+	<script src="/admin-ui.js"></script> 
+	<script src="@{REPO.ui}"></script>
 	@{import('meta', 'head', 'default.js + func.js', 'default.css', 'favicon.ico')}
 </head>
 <body class="invisible">
@@ -32,7 +30,8 @@
 	<ui-component name="imageviewer" config="unknown:@(Unknown image)"></ui-component>
 	<ui-component name="LAZY directory" config="placeholder:Search..."></ui-component>
 	<ui-component name="LAZY datepicker"></ui-component>
-	<ui-component name="LAZY icons"></ui-component><ui-component name="datepicker" config="today:@(Today);days:@(Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday);clear:@(Clear);months:@(January,February,March,April,May,Juny,July,August,September,October,November,December)"></ui-component>
+	<ui-component name="LAZY icons"></ui-component>
+	<!-- <ui-component name="datepicker" config="today:@(Today);days:@(Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday);clear:@(Clear);months:@(January,February,March,April,May,Juny,July,August,September,October,November,December)"></ui-component> -->
 
 	<ui-component name="LAZY icons"></ui-component>
 	<ui-component name="LAZY autocomplete"></ui-component>
@@ -299,7 +298,7 @@
 		});
 
 		ON('@flag hideloading', function() {
-			SETTER('loading/hide', 1000);
+			SETTER('loading/hide', 500);
 		});
 
 		$(document).on('click', '.mobile-button', function() {

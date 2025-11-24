@@ -8,11 +8,10 @@
 <div class="virtualwire hidden" data-if="CLASS">
 	<ui-plugin>
 		<div style="display:flex">
-			<!-- <ui-bind path="?.checked">
+			<ui-bind path="?.checked">
 				<button class="exec" data-exec="?/create"><i class="ti ti-plus-circle"></i>@(Create)</button>
 				<button class="exec" data-exec="?/refresh"><i class="ti ti-refresh"></i>@(Refresh)</button>
-				<button class="exec D" data-exec="?/menu"><i class="ti ti-cog"></i>@(Options)</button>
-			</ui-bind> -->
+			</ui-bind>
 		</div>
 	</ui-plugin>
 </div>
@@ -49,12 +48,19 @@
 		exports.init = function() {
 
 		};
+
+
 		exports.reload = function() {
 			exports.filter();
-			let id = FUNC.readquery('staffid');
-			if (id) {
+			let id = FUNC.readquery('sampleid');
+			console.log('id', id);
+
+			if (id == 'null') {
+				exports.create();
+			} else if (id) {
 				exports.update(id);
 			}
+
 		};
 
 		exports.filter = function (type, filter, sort, page) {
@@ -65,7 +71,7 @@
 			filter.includeroot = true;
 			filter.fields = ['*'];
 
-			exports.tapi('samples_list ERROR', filter, function (response) {
+			exports.tapi('Samples|list ERROR', filter, function (response) {
 				exports.set('items', response);
 			});
 		};
@@ -73,13 +79,14 @@
 		exports.create = function () {
 			SET('*form', 'formsample');
 			exports.set('formsample @reset', {});
+			FUNC.savequery('sampleid', 'null');
 		};
 
 		exports.update = function (el) {
 			var id = ATTRD(el);
 			console.log('update', id);	
 			FUNC.savequery('sampleid', id);
-			exports.tapi('samples_read @showloading ERROR', { id: id }, function (response) {
+			exports.tapi('Samples|read @showloading ERROR', { id: id }, function (response) {
 				SET('formsample @reset @hideloading', response);
 				SET('*form', 'formsample');
 			});

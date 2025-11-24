@@ -17,8 +17,8 @@ CREATE TABLE "public"."tbl_sample" (
     "createdbyid" INTEGER,
     "updatedbyid" INTEGER,
     "removedbyid" INTEGER,
-	"dtcreated" TIMESTAMP,
-	"dtupdated" TIMESTAMP,
+	"dtcreated" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+	"dtupdated" TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     "dtremoved" TIMESTAMP,
     
     CONSTRAINT "tbl_product_createdbyid_fkey" FOREIGN KEY ("createdbyid") REFERENCES "public"."tbl_user"("id") MATCH SIMPLE ON UPDATE CASCADE ON DELETE SET NULL,
