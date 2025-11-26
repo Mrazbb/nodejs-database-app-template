@@ -14,8 +14,6 @@ services:
       - ./data/app/tmp:/opt/app/tmp
       - ./data/app/logs:/opt/app/logs
       - ./data/app/databases:/opt/app/databases
-      - ./config:/opt/app/config
-      - ./.env:/opt/app/.env
       - ./app:/opt/app
     environment:
       - NODE_ENV=${environment}
