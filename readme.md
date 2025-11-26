@@ -52,15 +52,13 @@ chmod +x ./scripts/*.sh
 npm update --save
 npm install
 cp .env.main.sample .env.main
-cp app/sample.altergen.json app/altergen.json
-chmod +x app/entrypoint.sh
 ```
 ## Edit .env.main and altergen.json files with your database credentials
 
 ## Generate config (.env and config) from .env.main
 
 ```bash
-npm run config:generate
+./bin/toolkit config:generate
 ```
 
 
@@ -82,21 +80,6 @@ COMPOSE_FILE=docker-compose.yml
 ```
 
 
-### Step 2: Create NPM scripts in `package.json`
-
-Add the following scripts to your `package.json`:
-
-```json
-"scripts": {
-    "up": "docker compose up -d",
-    "down": "docker compose down",
-    "restart": "docker compose restart",
-    "stop": "docker compose stop",
-    "kill": "docker compose kill"
-}
-```
-
-
 ### Step 3: Usage
 
 To specify your environment, copy or rename the relevant `.env` file to `.env`:
@@ -104,47 +87,47 @@ To specify your environment, copy or rename the relevant `.env` file to `.env`:
 Then run the Docker Compose commands easily:
 
 ```bash
-npm run up        # Start containers
+./bin/toolkit up        # Start containers
 docker ps         # Verify containers
 
-npm run down      # Stop and remove containers
-npm run restart   # Restart containers
-npm run stop      # Stop containers
-npm run kill      # Forcefully kill containers
+./bin/toolkit down      # Stop and remove containers
+./bin/toolkit up restart   # Restart containers
+./bin/toolkit up stop      # Stop containers
+./bin/toolkit up kill      # Forcefully kill containers
 ```
 
 ## Starting the project
 
 ```bash
-npm run up
+./bin/toolkit up
 ```
 ## LOGS
 
 ```bash
-npm run logs app
-npm run logs postgres
+./bin/toolkit logs app
+./bin/toolkit logs postgres
 ```
 
 ## Shell inside the container
 
 ```bash
-npm run exec app
-npm run exec postgres
+./bin/toolkit exec app
+./bin/toolkit exec postgres
 ```
 
 
 ## Create Database from definition from the folder SQL
 
 ```bash
-npm run altergen:build-image
-npm run altergen
+./bin/toolkit altergen:build-image
+./bin/toolkit altergen
 ```
 
 ## Backup and Restore Postgres
 
 ```bash
-npm run postgres:backup [backup.sql]
-npm run postgres:restore [backup.sql]
+./bin/toolkit postgres:backup [backup.sql]
+./bin/toolkit postgres:restore [backup.sql]
 ```
 
 

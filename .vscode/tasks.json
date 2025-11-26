@@ -1,52 +1,312 @@
 {
-  // See https://go.microsoft.com/fwlink/?LinkId=733558
-  // for the documentation about the tasks.json format
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Run Database Migration",
+      "label": "toolkit: altergen:build",
       "type": "shell",
-      "command": "npm run altergen",
-      "group": "test",
-      "presentation": { "reveal": "always", "panel": "new" }
-    },
-    {
-      "label": "Backup Postgres",
-      "type": "shell",
-      "command": "npm run postgres:backup",
-      "group": "test",
-      "presentation": { "reveal": "always", "panel": "new" }
-    },
-    {
-      "label": "Restore Postgres",
-      "type": "shell",
-      "command": "./tasks/confirm.sh 'Are you sure?' && npm run postgres:restore",
-      "group": "test",
-      "presentation": { "reveal": "always", "panel": "new" }
-    },
-    {
-      "label": "APP LOGS",
-      "type": "shell",
-      "command": "npm run logs app",
-      "group": "test",
-      "presentation": { "reveal": "always", "panel": "new" },
-      "runOptions": {
-        "runOn": "folderOpen",
-      }
-
-    },
-    {
-      "label": "EXAMPLE!!!!! WITH CONFIRM",
-      "type": "shell",
-      "command": "./tasks/confirm.sh 'Are you sure you want to publish?' && if [ $? -eq 0 ]; then echo 'Publishing...'; fi",
-      "group": "test",
+      "command": "./bin/toolkit altergen:build",
+      "group": "build",
       "presentation": {
         "reveal": "always",
         "panel": "new"
-      },      
-      // "runOptions": {
-      //   "runOn": "folderOpen",
-      // }
+      }
+    }
+,
+    {
+      "label": "toolkit: altergen:run",
+      "type": "shell",
+      "command": "./bin/toolkit altergen:run",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: altergen",
+      "type": "shell",
+      "command": "./bin/toolkit altergen",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: config:check",
+      "type": "shell",
+      "command": "./bin/toolkit config:check",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: config:generate",
+      "type": "shell",
+      "command": "./bin/toolkit config:generate",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: confirm",
+      "type": "shell",
+      "command": "./bin/toolkit confirm",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: down",
+      "type": "shell",
+      "command": "./bin/toolkit down",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: exec",
+      "type": "shell",
+      "command": "./bin/toolkit exec",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: images:backup",
+      "type": "shell",
+      "command": "./bin/toolkit images:backup",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: images:remove",
+      "type": "shell",
+      "command": "./bin/toolkit images:remove",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: images:restore",
+      "type": "shell",
+      "command": "./bin/toolkit images:restore",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: kill copy",
+      "type": "shell",
+      "command": "./bin/toolkit kill copy",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: kill",
+      "type": "shell",
+      "command": "./bin/toolkit kill",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: logs",
+      "type": "shell",
+      "command": "./bin/toolkit logs",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: migrate:fromdev",
+      "type": "shell",
+      "command": "./bin/toolkit migrate:fromdev",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: migrate:fromprimaleto",
+      "type": "shell",
+      "command": "./bin/toolkit migrate:fromprimaleto",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: namedvolumes:backup",
+      "type": "shell",
+      "command": "./bin/toolkit namedvolumes:backup",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: namedvolumes:remove",
+      "type": "shell",
+      "command": "./bin/toolkit namedvolumes:remove",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: namedvolumes:restore",
+      "type": "shell",
+      "command": "./bin/toolkit namedvolumes:restore",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: postgres:backup",
+      "type": "shell",
+      "command": "./bin/toolkit postgres:backup",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: postgres:connect",
+      "type": "shell",
+      "command": "./bin/toolkit postgres:connect",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: postgres:restorefromPRODtoDEV",
+      "type": "shell",
+      "command": "./bin/toolkit postgres:restorefromPRODtoDEV",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: postgres:restore",
+      "type": "shell",
+      "command": "./bin/toolkit postgres:restore",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: run",
+      "type": "shell",
+      "command": "./bin/toolkit run",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: s3:backup",
+      "type": "shell",
+      "command": "./bin/toolkit s3:backup",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: start",
+      "type": "shell",
+      "command": "./bin/toolkit start",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: tasks:generate",
+      "type": "shell",
+      "command": "./bin/toolkit tasks:generate",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
+    }
+,
+    {
+      "label": "toolkit: up",
+      "type": "shell",
+      "command": "./bin/toolkit up",
+      "group": "build",
+      "presentation": {
+        "reveal": "always",
+        "panel": "new"
+      }
     }
   ]
 }

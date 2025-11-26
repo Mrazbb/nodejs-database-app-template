@@ -1,5 +1,0 @@
-services:
-  app:
-    labels:
-      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_auth.middlewares=${COMPOSE_PROJECT_NAME}_app_auth@docker"
-      - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_auth.basicauth.users=admin:$$2y$$05$$BjZarDhzxtq/n1OhmxEXlOY.lxvJo4vSAO1pdtL.6aFBd75mLpU/K"

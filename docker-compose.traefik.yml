@@ -1,4 +1,3 @@
-
 services:
   app:
     labels:
@@ -6,15 +5,25 @@ services:
         - "traefik.enable=true"
         - "traefik.docker.network=traefik-net"
 
-        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.rule=(${app_traefik_domains})"
+        # service
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=${app_port}"
+        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
+
+        # main router
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.rule=(${app_traefik_domains}) && ((${app_traefik_ipwhitelist}) || PathPrefix(`/api`))"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.entrypoints=websecure"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls=true"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.tls.certresolver=le"
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main.service=${COMPOSE_PROJECT_NAME}_app"
-        
-        # service
-        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.port=${app_port}"
-        - "traefik.http.services.${COMPOSE_PROJECT_NAME}_app.loadbalancer.server.scheme=http"
+
+        # BasicAuth
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.rule=(${app_traefik_domains}) && !(${app_traefik_ipwhitelist})"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.entrypoints=websecure"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.tls=true"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.tls.certresolver=le"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.middlewares=${COMPOSE_PROJECT_NAME}_app_main_auth@docker"
+        - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_main_auth.basicauth.users=admin:$$2y$$05$$BjZarDhzxtq/n1OhmxEXlOY.lxvJo4vSAO1pdtL.6aFBd75mLpU/K"
+        - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_main_auth_exception.service=${COMPOSE_PROJECT_NAME}_app"
        
         # www(http) to www(https) routers
         - "traefik.http.routers.${COMPOSE_PROJECT_NAME}_app_http.rule=(${app_traefik_domains})"
@@ -34,7 +43,8 @@ services:
         - "traefik.http.middlewares.${COMPOSE_PROJECT_NAME}_app_nonwww_https.redirectregex.permanent=true"
     networks:
       - traefik-net
-
+  
+       
 networks:
   traefik-net:
     external: true

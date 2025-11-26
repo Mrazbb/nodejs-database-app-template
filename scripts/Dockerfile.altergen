@@ -1,9 +1,0 @@
-FROM node:20-alpine
-
-RUN npm install -g pg-altergen --force --no-cache
-
-RUN npm list -g --depth=0
-
-WORKDIR /opt/app
-
-ENTRYPOINT ["sh", "-c"]

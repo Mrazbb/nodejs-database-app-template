@@ -25,12 +25,28 @@ fi
 # Debug output
 echo "Using output file: ${altergen_output_file}"
 echo "Using drop columns file: ${altergen_drop_columns_file}"
+echo "Using additional source directories: ${altergen_additional_source_dirs}"
 
+# altergen_additional_source_dirs
+#
+# altergen_additional_source_dirs=["private/sql"]
 # Build the docker run command
 DOCKER_CMD="docker run --rm -it \
     --network=$POSTGRES_NETWORK \
     -v $(pwd)/.env:/opt/app/.env \
-    -v $(pwd)/sql:/opt/app/sql \
+    -v $(pwd)/sql:/opt/app/sql"
+
+    # Add additional source directories if they exist
+    if [ -n "${altergen_additional_source_dirs}" ]; then
+        for i in ${altergen_additional_source_dirs[@]}; do
+
+          echo "Adding additional source directories: ${altergen_additional_source_dirs}"
+            DOCKER_CMD="$DOCKER_CMD -v $(pwd)/$i:/opt/app/$i"
+        done
+    fi
+
+# Add output directory volumes
+DOCKER_CMD="$DOCKER_CMD \
     -v $(pwd)/$(dirname "${altergen_output_file}"):/opt/app/$(dirname "${altergen_output_file}") \
     -v $(pwd)/$(dirname "${altergen_drop_columns_file}"):/opt/app/$(dirname "${altergen_drop_columns_file}")"
 

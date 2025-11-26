@@ -1,9 +1,6 @@
-volumes:
-  postgres_data:
 
 services:
   app:
-  
     container_name: ${COMPOSE_PROJECT_NAME}_app
     build: 
       context: ./app
@@ -11,21 +8,30 @@ services:
     restart: always
     working_dir: /opt/app
     volumes: 
+      # data
+      - ./data/app/files:/opt/app/files
+      - ./data/app/tmp:/opt/app/tmp
+      - ./data/app/logs:/opt/app/logs
+      - ./data/app/databases:/opt/app/databases
+
       - ./config:/opt/app/config
       - ./.env:/opt/app/.env
       - ./app:/opt/app
-      - /opt/app/node_modules
-    entrypoint: ["./entrypoint.${environment}.sh"]
-    ports:
-      - ${app_external_port}:${app_port}
-
+      # - /opt/app/node_modules
     environment:
       - NODE_ENV=${environment}
       - CONTAINER=${COMPOSE_PROJECT_NAME}_app
     networks:
       - postgres-net
+      - app-net
+    ports:
+      - ${app_external_port}:8000
     depends_on:
       - postgres
+      - redis
+
+
+ 
 
   postgres:
     container_name: ${COMPOSE_PROJECT_NAME}_postgres
@@ -39,13 +45,22 @@ services:
       POSTGRES_DB: ${postgres_db}
     volumes: 
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - ${postgres_external_port}:${postgres_port}
     networks:
       - postgres-net
+      - app-net
+    ports:
+      - ${postgres_external_port}:5432
+
 
  
+volumes:
+  postgres_data:
+
+  
 networks:
   postgres-net:
     name: ${COMPOSE_PROJECT_NAME}_postgres-net
+    driver: bridge
+  app-net:
+    name: ${COMPOSE_PROJECT_NAME}_app-net
     driver: bridge

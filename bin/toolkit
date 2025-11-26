@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+# Establish the project root as the directory containing the 'bin' folder.
+PROJECT_ROOT=$(cd "$(dirname "$0")/.." && pwd)
+cd "$PROJECT_ROOT"
+
+
+
+
+# Load environment variables
+if [ -f .env ]; then
+  source .env
+fi
+
+
+TOOLKIT_SCRIPTS_DIR="toolkit_scripts"
+COMMAND=$1
+
+# run the task generation script
+bash ./toolkit_scripts/core/tasks:generate.sh
+
+
+shift # Pass all other arguments to the command script
+
+if [ -z "$COMMAND" ]; then
+  echo "Usage: ./bin/toolkit [run|down|install|...]"
+  exit 1
+fi
+
+COMMAND_SCRIPT="$TOOLKIT_SCRIPTS_DIR/core/$COMMAND.sh"
+
+if [ -f "$COMMAND_SCRIPT" ]; then
+  # Source helpers to make functions available
+  if [ -f "$TOOLKIT_SCRIPTS_DIR/lib/helpers.sh" ]; then
+    source "$TOOLKIT_SCRIPTS_DIR/lib/helpers.sh"
+  fi
+  # Execute the specific command script
+  bash "$COMMAND_SCRIPT" "$@"
+else
+  echo "Error: Command '$COMMAND' not found."
+  exit 1
+fi

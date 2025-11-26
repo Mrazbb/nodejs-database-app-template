@@ -1,0 +1,1 @@
+toolkit_scripts/core/altergen:run.sh generate && toolkit_scripts/core/altergen:run.sh migrate

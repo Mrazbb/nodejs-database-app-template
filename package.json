@@ -6,29 +6,21 @@
     "altergen:generate": "./scripts/altergen_run.sh generate",
     "altergen:migrate": "./scripts/altergen_run.sh migrate",
     "altergen": "npm run altergen:generate && npm run altergen:migrate",
-
     "config:generate": "cd scripts && node generate_config.js && cd .. ",
-
     "up": "docker compose up -d",
     "down": "docker compose down",
     "restart": "docker compose restart",
     "stop": "docker compose stop",
     "kill": "docker compose kill",
-
-
     "logs": "./scripts/logs.sh",
     "exec": "./scripts/exec.sh",
-
-
     "postgres:backup": "./scripts/postgres.sh backup",
     "postgres:restore": "./scripts/postgres.sh restore",
     "postgres:connect": "./scripts/postgres.sh connect",
     "postgres": "./scripts/postgres.sh"
-    
-
   },
   "dependencies": {
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.6.1",
     "pg-altergen": "^3.0.8"
   }
 }
