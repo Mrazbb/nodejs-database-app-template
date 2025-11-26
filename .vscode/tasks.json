@@ -123,17 +123,6 @@
     }
 ,
     {
-      "label": "toolkit: kill copy",
-      "type": "shell",
-      "command": "./bin/toolkit kill copy",
-      "group": "build",
-      "presentation": {
-        "reveal": "always",
-        "panel": "new"
-      }
-    }
-,
-    {
       "label": "toolkit: kill",
       "type": "shell",
       "command": "./bin/toolkit kill",

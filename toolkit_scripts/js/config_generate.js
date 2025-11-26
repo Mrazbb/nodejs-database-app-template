@@ -74,7 +74,7 @@ const REG_SPLIT = /[ ,]+/;
     }
 
     // --- 4. Configure Postgres Connection String ---
-    if (env['docker_container_pg'] && env['postgres_user'] && env['postgres_password'] && env['postgres_db']) {
+    if (env['postgres_user'] && env['postgres_password'] && env['postgres_db']) {
         env['docker_container_pg'] = env['COMPOSE_PROJECT_NAME'] + '_postgres';
         env['postgres'] = `${env['postgres_user']}:${env['postgres_password']}@${env['docker_container_pg']}/${env['postgres_db']}`;
     }

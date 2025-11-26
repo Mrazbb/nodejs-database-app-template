@@ -87,19 +87,19 @@ To specify your environment, copy or rename the relevant `.env` file to `.env`:
 Then run the Docker Compose commands easily:
 
 ```bash
-./bin/toolkit up        # Start containers
+./bin/toolkit run       # Start containers
 docker ps         # Verify containers
 
 ./bin/toolkit down      # Stop and remove containers
-./bin/toolkit up restart   # Restart containers
-./bin/toolkit up stop      # Stop containers
-./bin/toolkit up kill      # Forcefully kill containers
+./bin/toolkit restart   # Restart containers
+./bin/toolkit stop      # Stop containers
+./bin/toolkit kill      # Forcefully kill containers
 ```
 
 ## Starting the project
 
 ```bash
-./bin/toolkit up
+./bin/toolkit run
 ```
 ## LOGS
 

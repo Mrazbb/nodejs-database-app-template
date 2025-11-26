@@ -2,20 +2,20 @@ const ADMIN = { id: 'admin', sa: true, name: 'Admin', permissions: [] };
 const BOT = { id: 'bot', sa: true, name: 'Bot', permissions: [] };
 
 CONF.app_type = 'app';
-
 ON('ready', function() {
 	CONF.op_reqtoken = CONF[CONF.app_type + '_op_reqtoken'] || null;
 	CONF.op_restoken = CONF[CONF.app_type + '_op_restoken'] || null;
+	console.log('CONF', CONF.op_reqtoken, CONF.op_restoken);
 });
 
 AUTH(function($) {
 	var path = $.split[0];
 	if (path === 'admin') {
-		console.log('admin');
 		var bearertoken = $.headers['authorization']?.split(' ')?.[1];
 
-		// x-token for apps
+		// token for apps
 		if ($.headers['x-token']) {
+			console.log('x-token', $.headers['x-token']);
 
 			var token = $.headers['x-token'];
 			if (BLOCKED($, 10)) {
@@ -34,21 +34,18 @@ AUTH(function($) {
 			BLOCKED($, -1);
 			$.success(BOT);
 
-		// if it is configured to use OpenPlatform
+		// OpenPlatform
 		} else if (CONF.op_reqtoken && CONF.op_restoken) {
-
 			console.log('op');
 			OpenPlatform.auth($);
-			
-		// TODO
-		// } else if (FUNC.authadmin) {
-		// 	console.log('authadmin');
-		// 	FUNC.authadmin($);
-
+		
+		// no token
 		} else {
+			console.log('no token');
 			$.invalid();
 		}
-		
+		console.log('invalid');
+		console.log('CONF.op_reqtoken && CONF.op_restoken', CONF.op_reqtoken , CONF.op_restoken);
 
 	} else {
 

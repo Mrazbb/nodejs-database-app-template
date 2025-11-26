@@ -5,17 +5,12 @@ const REG_YEAR = /@\{year\}/i;
 const REG_VARS = /\$[a-z0-9A-Z]+/g;
 const REG_URL = /(\/(?<langcountryid>\w*))(:?\/?(?<slug>[^\/]+)?)/
 
-CONF.app_type = 'cms';
 
 exports.install = function() {
-	ROUTE('GET /*', redirect_to_admin);
-	ROUTE('GET /admin/*', admin);
+	ROUTE('+GET ?*', admin); // Existing route
+	ROUTE('+GET /admin/*', admin); // Existing route
 	ROUTE('FILE /frontend/*', files_public);
 };
-
-function redirect_to_admin($) {
-	$.redirect('/admin/movies');
-}
 
 async function files_public ($) {
 	let filepath = PATH.root('private/frontend');
@@ -34,9 +29,8 @@ LOCALIZE(function($) {
 });
 
 function admin($) {
-
+	console.log('admin', $);
 	var plugins = [];
-
 	if ($.user.openplatform && !$.user.iframe && $.query.openplatform) {
 		$.cookie(CONF.op_cookie, $.query.openplatform, NOW.add('12 hours'));
 		$.redirect($.url);
@@ -44,10 +38,8 @@ function admin($) {
 	}
 
 	var hostname = $.hostname();
-
 	if (CONF.url !== hostname)
 		CONF.url = hostname;
-
 	for (var key in F.plugins) {
 		var item = F.plugins[key];
 		if (!item.visible || item.visible($.user)) {
@@ -62,7 +54,6 @@ function admin($) {
 			plugins.push(obj);
 		}
 	}
-
 	$.view('admin', plugins);
 }
 

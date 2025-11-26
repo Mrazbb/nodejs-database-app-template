@@ -18,9 +18,7 @@
     "total5": "^0.0.8-2"
   },
   "scripts": {
-    "altergen": "cd scripts && ./altergen.sh",
-    "logs": "cd scripts && ./docker_logs.sh",
-    "update-altergen": "cd scripts && ./update_altergen.sh"
+    "start": "node index.js"
   },
   "keywords": [
     "app"

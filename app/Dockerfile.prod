@@ -1,21 +1,21 @@
 # This file is a template, and might need editing before it works on your project.
-FROM node:21
+FROM node:22
 
 
 RUN apt update
 RUN apt install -y --no-install-recommends graphicsmagick && rm -rf /var/lib/apt/lists/*
-
-
 WORKDIR /opt/app
 
 
 COPY package.json /opt/app
 RUN npm install
+RUN npm list
 
 # COPY . /opt/app
 
 EXPOSE 8000
 
+CMD ["node", "index.js"]
 
 
-CMD [ "node", "index.js" ]
+
