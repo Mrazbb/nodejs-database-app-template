@@ -85,6 +85,18 @@ const REG_SPLIT = /[ ,]+/;
             }
             env[`docker_container_${app}`] = `${env.COMPOSE_PROJECT_NAME}_${app}`;
 
+        });
+
+    }
+
+    // --- 4. Configure Postgres Connection String ---
+    if (env['postgres_user'] && env['postgres_password'] && env['postgres_db']) {
+        env['docker_container_pg'] = env['COMPOSE_PROJECT_NAME'] + '_postgres';
+        env['postgres'] = `${env['postgres_user']}:${env['postgres_password']}@${env['docker_container_pg']}/${env['postgres_db']}`;
+    }
+
+    if(apps?.length > 0) {
+        apps.forEach(app => {
             // env
             if (env[`${app}_env_vars`] && env['env_for_apps'].includes(app)) {
                 const envVars = splitArray(env[`${app}_env_vars`]);
@@ -98,28 +110,19 @@ const REG_SPLIT = /[ ,]+/;
                     }   
                 });
             }
+
         });
-
-
-
-        // env
-    }
-
-    // --- 4. Configure Postgres Connection String ---
-    if (env['postgres_user'] && env['postgres_password'] && env['postgres_db']) {
-        env['docker_container_pg'] = env['COMPOSE_PROJECT_NAME'] + '_postgres';
-        env['postgres'] = `${env['postgres_user']}:${env['postgres_password']}@${env['docker_container_pg']}/${env['postgres_db']}`;
     }
 
     // --- 5. Generate `config` and `.env` File Content ---
 
-    let { configfile, envfile } = getAppConfigFile(configs);
+    let { configfile, envfile } = getAppConfigFile(env);
 
     for (const app in configs) {
         if (env['env_for_apps'].includes(app)) {
-            let { configfile, envfile } = getAppConfigFile(configs[app]);
-            await fs.writeFileSync(path.resolve(projectRoot, `${app}/config`), configfile);
-            await fs.writeFileSync(path.resolve(projectRoot, `${app}/.env`), envfile);
+            let { configfile:appConfigfile, envfile:appEnvfile } = getAppConfigFile(configs[app]);
+            await fs.writeFileSync(path.resolve(projectRoot, `${app}/config`), appConfigfile);
+            await fs.writeFileSync(path.resolve(projectRoot, `${app}/.env`), appEnvfile);
         }
 
     }

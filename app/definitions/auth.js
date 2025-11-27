@@ -2,11 +2,6 @@ const ADMIN = { id: 'admin', sa: true, name: 'Admin', permissions: [] };
 const BOT = { id: 'bot', sa: true, name: 'Bot', permissions: [] };
 
 CONF.app_type = 'app';
-ON('ready', function() {
-	CONF.op_reqtoken = CONF[CONF.app_type + '_op_reqtoken'] || null;
-	CONF.op_restoken = CONF[CONF.app_type + '_op_restoken'] || null;
-	console.log('CONF', CONF.op_reqtoken, CONF.op_restoken);
-});
 
 AUTH(function($) {
 	var path = $.split[0];

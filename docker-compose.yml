@@ -15,6 +15,8 @@ services:
       - ./data/app/logs:/opt/app/logs
       - ./data/app/databases:/opt/app/databases
       - ./app:/opt/app
+      - ./shared/backend:/opt/app/definitions/shared
+      - ./shared/frontend:/opt/app/public/shared
     environment:
       - NODE_ENV=${environment}
       - CONTAINER=${COMPOSE_PROJECT_NAME}_app
